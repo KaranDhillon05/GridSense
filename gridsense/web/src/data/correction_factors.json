@@ -1,0 +1,49 @@
+{
+  "by_cause": {
+    "accident": 0.99,
+    "construction": 0.906,
+    "others": 0.872,
+    "pot_holes": 1.346,
+    "road_conditions": 1.294,
+    "vehicle_breakdown": 1.061,
+    "water_logging": 2.0
+  },
+  "by_cause_corridor": {
+    "accident": {
+      "Non-corridor": 1.218
+    },
+    "construction": {
+      "Non-corridor": 1.174
+    },
+    "others": {
+      "Mysore Road": 0.562,
+      "Non-corridor": 0.811
+    },
+    "vehicle_breakdown": {
+      "Bellary Road 1": 1.001,
+      "Bellary Road 2": 1.101,
+      "Hosur Road": 1.188,
+      "Magadi Road": 1.094,
+      "Mysore Road": 1.091,
+      "Non-corridor": 1.067,
+      "ORR East 1": 1.019,
+      "ORR North 1": 0.872,
+      "ORR North 2": 0.989,
+      "ORR West 1": 1.108,
+      "Old Madras Road": 1.128,
+      "Tumkur Road": 0.983
+    }
+  },
+  "meta": {
+    "n_train": 1943,
+    "clip": [
+      0.5,
+      2.0
+    ],
+    "shrink": 0.8,
+    "min_n_cause": 30,
+    "min_n_cause_corridor": 25,
+    "train_until": "2024-03-05",
+    "generated_at": "2026-06-18T16:08:20Z"
+  }
+}

@@ -1,0 +1,668 @@
+{
+  "meta": {
+    "source": "synthetic_osm_cbd_chinnaswamy",
+    "bbox": {
+      "min_lat": 12.964,
+      "max_lat": 12.984,
+      "min_lon": 77.585,
+      "max_lon": 77.61
+    },
+    "node_count": 14,
+    "edge_count": 27
+  },
+  "nodes": [
+    {
+      "id": "venue_chinnaswamy",
+      "lat": 12.9788,
+      "lon": 77.5996,
+      "name": "Chinnaswamy Stadium"
+    },
+    {
+      "id": "mg_trinity",
+      "lat": 12.9765,
+      "lon": 77.6018,
+      "name": "Trinity Circle"
+    },
+    {
+      "id": "mg_queens",
+      "lat": 12.9738,
+      "lon": 77.5985,
+      "name": "Queens Circle"
+    },
+    {
+      "id": "mg_cubbon_gate",
+      "lat": 12.9762,
+      "lon": 77.5958,
+      "name": "Cubbon Park Gate"
+    },
+    {
+      "id": "kasturba_mayo",
+      "lat": 12.9745,
+      "lon": 77.5925,
+      "name": "Mayo Hall Junction"
+    },
+    {
+      "id": "kasturba_south",
+      "lat": 12.9688,
+      "lon": 77.5912,
+      "name": "Kasturba Road South"
+    },
+    {
+      "id": "cubbon_east",
+      "lat": 12.9802,
+      "lon": 77.6045,
+      "name": "Cubbon Road East"
+    },
+    {
+      "id": "cubbon_west",
+      "lat": 12.9795,
+      "lon": 77.5938,
+      "name": "Cubbon Road West"
+    },
+    {
+      "id": "queens_west",
+      "lat": 12.9718,
+      "lon": 77.5948,
+      "name": "Queens Road West"
+    },
+    {
+      "id": "mg_north",
+      "lat": 12.9825,
+      "lon": 77.6002,
+      "name": "MG Road North"
+    },
+    {
+      "id": "irr_east",
+      "lat": 12.981,
+      "lon": 77.608,
+      "name": "IRR East Feeder"
+    },
+    {
+      "id": "irr_west",
+      "lat": 12.977,
+      "lon": 77.5865,
+      "name": "IRR West Feeder"
+    },
+    {
+      "id": "hosur_feeder",
+      "lat": 12.965,
+      "lon": 77.601,
+      "name": "Hosur Road Feeder"
+    },
+    {
+      "id": "emergency_bay",
+      "lat": 12.9778,
+      "lon": 77.6008,
+      "name": "Ambulance Staging"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_mg_trinity_queens",
+      "from": "mg_trinity",
+      "to": "mg_queens",
+      "name": "MG Road",
+      "length_m": 433,
+      "lanes": 3,
+      "road_class": "arterial",
+      "base_capacity_vph": 5400,
+      "allows_heavy_vehicle": true,
+      "geometry": [
+        [
+          77.6018,
+          12.9765
+        ],
+        [
+          77.5985,
+          12.9738
+        ]
+      ]
+    },
+    {
+      "id": "e_mg_trinity_queens_rev",
+      "from": "mg_queens",
+      "to": "mg_trinity",
+      "name": "MG Road",
+      "length_m": 433,
+      "lanes": 3,
+      "road_class": "arterial",
+      "base_capacity_vph": 5400,
+      "allows_heavy_vehicle": true,
+      "geometry": [
+        [
+          77.5985,
+          12.9738
+        ],
+        [
+          77.6018,
+          12.9765
+        ]
+      ]
+    },
+    {
+      "id": "e_mg_queens_cubbon",
+      "from": "mg_queens",
+      "to": "mg_cubbon_gate",
+      "name": "MG Road",
+      "length_m": 370,
+      "lanes": 3,
+      "road_class": "arterial",
+      "base_capacity_vph": 5400,
+      "allows_heavy_vehicle": true,
+      "geometry": [
+        [
+          77.5985,
+          12.9738
+        ],
+        [
+          77.5958,
+          12.9762
+        ]
+      ]
+    },
+    {
+      "id": "e_mg_queens_cubbon_rev",
+      "from": "mg_cubbon_gate",
+      "to": "mg_queens",
+      "name": "MG Road",
+      "length_m": 370,
+      "lanes": 3,
+      "road_class": "arterial",
+      "base_capacity_vph": 5400,
+      "allows_heavy_vehicle": true,
+      "geometry": [
+        [
+          77.5958,
+          12.9762
+        ],
+        [
+          77.5985,
+          12.9738
+        ]
+      ]
+    },
+    {
+      "id": "e_mg_cubbon_venue",
+      "from": "mg_cubbon_gate",
+      "to": "venue_chinnaswamy",
+      "name": "Stadium Approach",
+      "length_m": 462,
+      "lanes": 2,
+      "road_class": "collector",
+      "base_capacity_vph": 2400,
+      "allows_heavy_vehicle": true,
+      "geometry": [
+        [
+          77.5958,
+          12.9762
+        ],
+        [
+          77.5996,
+          12.9788
+        ]
+      ]
+    },
+    {
+      "id": "e_mg_cubbon_venue_rev",
+      "from": "venue_chinnaswamy",
+      "to": "mg_cubbon_gate",
+      "name": "Stadium Approach",
+      "length_m": 462,
+      "lanes": 2,
+      "road_class": "collector",
+      "base_capacity_vph": 2400,
+      "allows_heavy_vehicle": true,
+      "geometry": [
+        [
+          77.5996,
+          12.9788
+        ],
+        [
+          77.5958,
+          12.9762
+        ]
+      ]
+    },
+    {
+      "id": "e_cubbon_east_west",
+      "from": "cubbon_east",
+      "to": "cubbon_west",
+      "name": "Cubbon Road",
+      "length_m": 1015,
+      "lanes": 2,
+      "road_class": "arterial",
+      "base_capacity_vph": 3600,
+      "allows_heavy_vehicle": true,
+      "geometry": [
+        [
+          77.6045,
+          12.9802
+        ],
+        [
+          77.5938,
+          12.9795
+        ]
+      ]
+    },
+    {
+      "id": "e_cubbon_east_west_rev",
+      "from": "cubbon_west",
+      "to": "cubbon_east",
+      "name": "Cubbon Road",
+      "length_m": 1015,
+      "lanes": 2,
+      "road_class": "arterial",
+      "base_capacity_vph": 3600,
+      "allows_heavy_vehicle": true,
+      "geometry": [
+        [
+          77.5938,
+          12.9795
+        ],
+        [
+          77.6045,
+          12.9802
+        ]
+      ]
+    },
+    {
+      "id": "e_cubbon_west_venue",
+      "from": "cubbon_west",
+      "to": "venue_chinnaswamy",
+      "name": "Cubbon Feeder",
+      "length_m": 554,
+      "lanes": 2,
+      "road_class": "collector",
+      "base_capacity_vph": 2400,
+      "allows_heavy_vehicle": true,
+      "geometry": [
+        [
+          77.5938,
+          12.9795
+        ],
+        [
+          77.5996,
+          12.9788
+        ]
+      ]
+    },
+    {
+      "id": "e_cubbon_west_venue_rev",
+      "from": "venue_chinnaswamy",
+      "to": "cubbon_west",
+      "name": "Cubbon Feeder",
+      "length_m": 554,
+      "lanes": 2,
+      "road_class": "collector",
+      "base_capacity_vph": 2400,
+      "allows_heavy_vehicle": true,
+      "geometry": [
+        [
+          77.5996,
+          12.9788
+        ],
+        [
+          77.5938,
+          12.9795
+        ]
+      ]
+    },
+    {
+      "id": "e_cubbon_east_irr",
+      "from": "irr_east",
+      "to": "cubbon_east",
+      "name": "Cubbon East Link",
+      "length_m": 343,
+      "lanes": 2,
+      "road_class": "arterial",
+      "base_capacity_vph": 3600,
+      "allows_heavy_vehicle": true,
+      "geometry": [
+        [
+          77.608,
+          12.981
+        ],
+        [
+          77.6045,
+          12.9802
+        ]
+      ]
+    },
+    {
+      "id": "e_cubbon_east_irr_rev",
+      "from": "cubbon_east",
+      "to": "irr_east",
+      "name": "Cubbon East Link",
+      "length_m": 343,
+      "lanes": 2,
+      "road_class": "arterial",
+      "base_capacity_vph": 3600,
+      "allows_heavy_vehicle": true,
+      "geometry": [
+        [
+          77.6045,
+          12.9802
+        ],
+        [
+          77.608,
+          12.981
+        ]
+      ]
+    },
+    {
+      "id": "e_kasturba_mayo_south",
+      "from": "kasturba_mayo",
+      "to": "kasturba_south",
+      "name": "Kasturba Road",
+      "length_m": 646,
+      "lanes": 2,
+      "road_class": "arterial",
+      "base_capacity_vph": 3600,
+      "allows_heavy_vehicle": true,
+      "geometry": [
+        [
+          77.5925,
+          12.9745
+        ],
+        [
+          77.5912,
+          12.9688
+        ]
+      ]
+    },
+    {
+      "id": "e_kasturba_mayo_south_rev",
+      "from": "kasturba_south",
+      "to": "kasturba_mayo",
+      "name": "Kasturba Road",
+      "length_m": 646,
+      "lanes": 2,
+      "road_class": "arterial",
+      "base_capacity_vph": 3600,
+      "allows_heavy_vehicle": true,
+      "geometry": [
+        [
+          77.5912,
+          12.9688
+        ],
+        [
+          77.5925,
+          12.9745
+        ]
+      ]
+    },
+    {
+      "id": "e_kasturba_mayo_cubbon",
+      "from": "kasturba_mayo",
+      "to": "mg_cubbon_gate",
+      "name": "Kasturba Connector",
+      "length_m": 365,
+      "lanes": 2,
+      "road_class": "collector",
+      "base_capacity_vph": 2400,
+      "allows_heavy_vehicle": true,
+      "geometry": [
+        [
+          77.5925,
+          12.9745
+        ],
+        [
+          77.5958,
+          12.9762
+        ]
+      ]
+    },
+    {
+      "id": "e_kasturba_mayo_cubbon_rev",
+      "from": "mg_cubbon_gate",
+      "to": "kasturba_mayo",
+      "name": "Kasturba Connector",
+      "length_m": 365,
+      "lanes": 2,
+      "road_class": "collector",
+      "base_capacity_vph": 2400,
+      "allows_heavy_vehicle": true,
+      "geometry": [
+        [
+          77.5958,
+          12.9762
+        ],
+        [
+          77.5925,
+          12.9745
+        ]
+      ]
+    },
+    {
+      "id": "e_queens_west_queens",
+      "from": "queens_west",
+      "to": "mg_queens",
+      "name": "Queens Road",
+      "length_m": 415,
+      "lanes": 2,
+      "road_class": "collector",
+      "base_capacity_vph": 2400,
+      "allows_heavy_vehicle": true,
+      "geometry": [
+        [
+          77.5948,
+          12.9718
+        ],
+        [
+          77.5985,
+          12.9738
+        ]
+      ]
+    },
+    {
+      "id": "e_queens_west_queens_rev",
+      "from": "mg_queens",
+      "to": "queens_west",
+      "name": "Queens Road",
+      "length_m": 415,
+      "lanes": 2,
+      "road_class": "collector",
+      "base_capacity_vph": 2400,
+      "allows_heavy_vehicle": true,
+      "geometry": [
+        [
+          77.5985,
+          12.9738
+        ],
+        [
+          77.5948,
+          12.9718
+        ]
+      ]
+    },
+    {
+      "id": "e_queens_venue",
+      "from": "mg_queens",
+      "to": "venue_chinnaswamy",
+      "name": "Queens Stadium Link",
+      "length_m": 566,
+      "lanes": 1,
+      "road_class": "local",
+      "base_capacity_vph": 600,
+      "allows_heavy_vehicle": false,
+      "geometry": [
+        [
+          77.5985,
+          12.9738
+        ],
+        [
+          77.5996,
+          12.9788
+        ]
+      ]
+    },
+    {
+      "id": "e_mg_north_trinity",
+      "from": "mg_north",
+      "to": "mg_trinity",
+      "name": "MG Road North",
+      "length_m": 685,
+      "lanes": 3,
+      "road_class": "arterial",
+      "base_capacity_vph": 5400,
+      "allows_heavy_vehicle": true,
+      "geometry": [
+        [
+          77.6002,
+          12.9825
+        ],
+        [
+          77.6018,
+          12.9765
+        ]
+      ]
+    },
+    {
+      "id": "e_mg_north_trinity_rev",
+      "from": "mg_trinity",
+      "to": "mg_north",
+      "name": "MG Road North",
+      "length_m": 685,
+      "lanes": 3,
+      "road_class": "arterial",
+      "base_capacity_vph": 5400,
+      "allows_heavy_vehicle": true,
+      "geometry": [
+        [
+          77.6018,
+          12.9765
+        ],
+        [
+          77.6002,
+          12.9825
+        ]
+      ]
+    },
+    {
+      "id": "e_irr_west_kasturba",
+      "from": "irr_west",
+      "to": "kasturba_mayo",
+      "name": "IRR West",
+      "length_m": 632,
+      "lanes": 2,
+      "road_class": "arterial",
+      "base_capacity_vph": 3600,
+      "allows_heavy_vehicle": true,
+      "geometry": [
+        [
+          77.5865,
+          12.977
+        ],
+        [
+          77.5925,
+          12.9745
+        ]
+      ]
+    },
+    {
+      "id": "e_irr_west_kasturba_rev",
+      "from": "kasturba_mayo",
+      "to": "irr_west",
+      "name": "IRR West",
+      "length_m": 632,
+      "lanes": 2,
+      "road_class": "arterial",
+      "base_capacity_vph": 3600,
+      "allows_heavy_vehicle": true,
+      "geometry": [
+        [
+          77.5925,
+          12.9745
+        ],
+        [
+          77.5865,
+          12.977
+        ]
+      ]
+    },
+    {
+      "id": "e_hosur_queens",
+      "from": "hosur_feeder",
+      "to": "mg_queens",
+      "name": "Hosur Feeder",
+      "length_m": 1008,
+      "lanes": 2,
+      "road_class": "arterial",
+      "base_capacity_vph": 3600,
+      "allows_heavy_vehicle": true,
+      "geometry": [
+        [
+          77.601,
+          12.965
+        ],
+        [
+          77.5985,
+          12.9738
+        ]
+      ]
+    },
+    {
+      "id": "e_hosur_queens_rev",
+      "from": "mg_queens",
+      "to": "hosur_feeder",
+      "name": "Hosur Feeder",
+      "length_m": 1008,
+      "lanes": 2,
+      "road_class": "arterial",
+      "base_capacity_vph": 3600,
+      "allows_heavy_vehicle": true,
+      "geometry": [
+        [
+          77.5985,
+          12.9738
+        ],
+        [
+          77.601,
+          12.965
+        ]
+      ]
+    },
+    {
+      "id": "e_emergency_venue",
+      "from": "emergency_bay",
+      "to": "venue_chinnaswamy",
+      "name": "Emergency Access",
+      "length_m": 159,
+      "lanes": 1,
+      "road_class": "local",
+      "base_capacity_vph": 600,
+      "allows_heavy_vehicle": false,
+      "geometry": [
+        [
+          77.6008,
+          12.9778
+        ],
+        [
+          77.5996,
+          12.9788
+        ]
+      ]
+    },
+    {
+      "id": "e_emergency_mg",
+      "from": "mg_trinity",
+      "to": "emergency_bay",
+      "name": "Emergency MG Link",
+      "length_m": 173,
+      "lanes": 1,
+      "road_class": "local",
+      "base_capacity_vph": 600,
+      "allows_heavy_vehicle": false,
+      "geometry": [
+        [
+          77.6018,
+          12.9765
+        ],
+        [
+          77.6008,
+          12.9778
+        ]
+      ]
+    }
+  ]
+}
