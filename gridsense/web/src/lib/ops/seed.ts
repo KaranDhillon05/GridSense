@@ -209,13 +209,13 @@ export function seedOpsState(): OpsState {
 
   // --- Resource roster (deterministic placement at depot nodes) ------------
   const roster: Array<{ type: ResourceType; depotKey: keyof typeof DEPOTS; n: number }> = [
-    { type: "officer", depotKey: "police", n: 6 },
-    { type: "supervisor", depotKey: "police", n: 1 },
-    { type: "rapid_response", depotKey: "police", n: 1 },
-    { type: "tow_truck", depotKey: "tow", n: 2 },
-    { type: "recovery_van", depotKey: "tow", n: 1 },
-    { type: "ambulance", depotKey: "hospital", n: 1 },
-    { type: "fire_engine", depotKey: "fire", n: 1 },
+    { type: "officer", depotKey: "police", n: 15 },
+    { type: "supervisor", depotKey: "police", n: 3 },
+    { type: "rapid_response", depotKey: "police", n: 3 },
+    { type: "tow_truck", depotKey: "tow", n: 5 },
+    { type: "recovery_van", depotKey: "tow", n: 2 },
+    { type: "ambulance", depotKey: "hospital", n: 3 },
+    { type: "fire_engine", depotKey: "fire", n: 2 },
   ];
 
   let rcount = 1;
