@@ -6,6 +6,8 @@
 
 import { getNetwork, SimNetwork } from "./network";
 import { buildSignals, clearOverride, mayProceed, setEmergencyOverride, stepSignal } from "./signals";
+import { classifyJunctions, signalizedNodes } from "./junctionClassifier";
+import type { JunctionClass } from "./types";
 import { DEFAULT_IDM, idmAccel, type IdmParams } from "./carFollowing";
 import { computeCongestion, queueMap, utilizationMap } from "./congestion";
 import { MetricsTracker } from "./metrics";
@@ -35,6 +37,10 @@ export interface EngineConfig {
   spawnPerMin: number;
   applyInterventions: boolean;
   maxVehicles?: number;
+  /** Opt-in realistic-traffic variant: hierarchy-aware signal placement,
+   *  stop-line setback, junction-blocking, gap-acceptance merges, actuated
+   *  signals. Defaults OFF so the protected /simulation engine is unchanged. */
+  realism?: boolean;
 }
 
 export interface IncidentInput {
@@ -67,6 +73,29 @@ function blockedLaneSet(
 
 const SAFE_GAP = 1.5;
 const REROUTE_BATCH = 40;
+/** Legacy stop line: 1 m before the node (used when realism is off). */
+const LEGACY_STOP_SETBACK_M = 1;
+
+/** Realism turn-speed targets (m/s) by turn type — vehicles slow into the curve
+ *  by geometry instead of a flat crawl. Sharper turn ⇒ slower. Calibration target. */
+const TURN_SPEED_MS: Record<"straight" | "left" | "right" | "u_turn", number> = {
+  straight: 9,
+  right: 7, // wide turn in left-hand traffic
+  left: 4.5, // tight kerb-side turn in left-hand traffic
+  u_turn: 3,
+};
+/** Lateral acceleration cap (m/s²) → longer/sweeping connectors allow more speed. */
+const TURN_LAT_ACCEL = 2.0;
+/** Crawl floor through a turn so a vehicle never fully stalls mid-junction. */
+const TURN_MIN_MS = 1.5;
+
+/** Lane-changing (realism). Distance before the junction within which a vehicle
+ *  must be in its turn lane; longitudinal clearance needed in the target lane;
+ *  min gain + cooldown for discretionary (speed-seeking) changes. */
+const TURN_LANE_LOOKAHEAD_M = 80;
+const LC_GAP_M = 4; // extra clearance beyond vehicle length for a safe change
+const LC_DISCRETIONARY_GAIN_M = 15; // adjacent lane must be this much freer
+const LC_COOLDOWN_SEC = 6; // anti-oscillation between discretionary changes
 
 const ROAD_PRIORITY: Record<string, number> = {
   motorway: 5,
@@ -93,10 +122,25 @@ function turnKind(net: SimNetwork, fromEdge: string, toEdge: string): "straight"
   return cw <= 180 ? "right" : "left";
 }
 
-function movementsConflict(aFrom: string, aTo: string, bFrom: string, bTo: string): boolean {
+/** Legacy conflict rule (realism OFF): every different-approach movement
+ *  conflicts. Over-serializes junctions but preserved exactly for /simulation. */
+function movementsConflictLegacy(aFrom: string, bFrom: string): boolean {
   if (aFrom === bFrom) return false;
-  if (aTo === bTo) return false;
   return true;
+}
+
+/** 2D segment intersection (proper crossing, endpoints excluded). Coordinates in
+ *  a local metre frame; movement chords that genuinely cross => conflict. */
+function segmentsCross(
+  ax: number, ay: number, bx: number, by: number,
+  cx: number, cy: number, dx: number, dy: number
+): boolean {
+  const d1 = (dx - cx) * (ay - cy) - (dy - cy) * (ax - cx);
+  const d2 = (dx - cx) * (by - cy) - (dy - cy) * (bx - cx);
+  const d3 = (bx - ax) * (cy - ay) - (by - ay) * (cx - ax);
+  const d4 = (bx - ax) * (dy - ay) - (by - ay) * (dx - ax);
+  return ((d1 > 0 && d2 < 0) || (d1 < 0 && d2 > 0)) &&
+         ((d3 > 0 && d4 < 0) || (d3 < 0 && d4 > 0));
 }
 
 function roadPri(net: SimNetwork, edgeId: string): number {
@@ -124,14 +168,31 @@ export class Engine {
   private fleetInUse = new Map<ResourceType, number>();
   /** Active turn movements occupying a junction (nodeId -> movement keys). */
   private junctionActive = new Map<string, Set<string>>();
+  /** Realism mode: hierarchy-aware junction taxonomy (empty when realism off). */
+  private junctionClass = new Map<string, JunctionClass>();
   /** Vehicles waiting to reroute, processed in batches per frame. */
   private rerouteQueue: number[] = [];
 
   constructor(cfg: EngineConfig) {
     this.cfg = cfg;
     this.net = getNetwork();
-    this.signals = buildSignals(this.net);
+    if (cfg.realism) this.junctionClass = classifyJunctions(this.net);
+    this.signals = this.buildSignalsForCfg();
     this.rng = mulberry32(cfg.seed);
+  }
+
+  /** Build signals honouring the realism placement gate + controller level. */
+  private buildSignalsForCfg(): Map<string, JunctionSignal> {
+    if (!this.cfg.realism) return buildSignals(this.net);
+    return buildSignals(this.net, {
+      signalizedNodes: signalizedNodes(this.net, this.junctionClass),
+      actuated: true,
+    });
+  }
+
+  /** Default running mode a signal returns to (after a failure clears, etc.). */
+  private get defaultSignalMode(): "fixed" | "actuated" {
+    return this.cfg.realism ? "actuated" : "fixed";
   }
 
   reset(cfg?: Partial<EngineConfig>) {
@@ -141,7 +202,8 @@ export class Engine {
     this.incidents = [];
     this.resources = [];
     this.closedEdges.clear();
-    this.signals = buildSignals(this.net);
+    this.junctionClass = this.cfg.realism ? classifyJunctions(this.net) : new Map();
+    this.signals = this.buildSignalsForCfg();
     this.rng = mulberry32(this.cfg.seed);
     this.nextVehId = this.nextIncId = this.nextResId = 1;
     this.spawnAcc = 0;
@@ -312,7 +374,7 @@ export class Engine {
       const e = this.net.edge(inc.edgeId);
       const sig = e && this.signals.get(e.to);
       if (sig && sig.mode === "failed") {
-        sig.mode = "fixed";
+        sig.mode = this.defaultSignalMode;
       }
     }
     // release resources
@@ -397,6 +459,90 @@ export class Engine {
     return null;
   }
 
+  /** Is a shift to `lane` longitudinally safe for v (no vehicle within the
+   *  body+gap window in that lane)? O(lane occupancy near v). */
+  private laneChangeSafe(
+    v: Vehicle,
+    lane: number,
+    idx: Map<string, Map<number, Vehicle[]>>
+  ): boolean {
+    const arr = idx.get(v.edgeId)?.get(lane);
+    if (!arr) return true;
+    const need = v.lengthM + LC_GAP_M;
+    for (const o of arr) {
+      if (Math.abs(o.distOnEdge - v.distOnEdge) < need) return false;
+    }
+    return true;
+  }
+
+  /** Forward gap (m) to the next vehicle ahead in a given lane (∞ if none). */
+  private laneForwardGap(
+    v: Vehicle,
+    lane: number,
+    idx: Map<string, Map<number, Vehicle[]>>
+  ): number {
+    const arr = idx.get(v.edgeId)?.get(lane);
+    if (!arr) return Infinity;
+    for (const o of arr) {
+      if (o.distOnEdge > v.distOnEdge) return o.distOnEdge - v.distOnEdge - o.lengthM;
+    }
+    return Infinity;
+  }
+
+  /** Realism lane-changing (Bug 5): (a) mandatory turn-lane positioning near a
+   *  junction, (b) discretionary speed-seeking change. One lane per tick, gap-
+   *  checked, with a cooldown so vehicles don't oscillate. O(n) via the index. */
+  private applyLaneChanges(idx: Map<string, Map<number, Vehicle[]>>) {
+    for (const v of this.vehicles) {
+      if (v.arrived || v.onConnector) continue;
+      const lanes = this.net.laneCount(v.edgeId);
+      if (lanes < 2) continue;
+      const edge = this.net.edge(v.edgeId);
+      if (!edge) continue;
+
+      // (a) Mandatory turn-lane positioning: approaching the junction, move toward
+      // the lane the next movement needs. Left turn → kerb lane (lanes-1),
+      // right turn → centreline lane (0), straight → keep. (Left-hand traffic.)
+      const isLast = v.routeIdx >= v.route.length - 1;
+      const distToEnd = this.net.edgeLength(v.edgeId) - v.distOnEdge;
+      if (!isLast && distToEnd < TURN_LANE_LOOKAHEAD_M) {
+        const nextEdge = v.route[v.routeIdx + 1];
+        const turn = turnKind(this.net, v.edgeId, nextEdge);
+        const want = turn === "left" ? lanes - 1 : turn === "right" || turn === "u_turn" ? 0 : v.laneIndex;
+        if (want !== v.laneIndex) {
+          const dir = want > v.laneIndex ? 1 : -1;
+          const tgt = v.laneIndex + dir;
+          if (tgt >= 0 && tgt < lanes && this.laneChangeSafe(v, tgt, idx)) {
+            v.laneIndex = tgt;
+            this.updateRenderPos(v);
+          }
+          continue; // mandatory takes precedence over discretionary this tick
+        }
+      }
+
+      // (b) Discretionary: if a neighbouring lane is markedly freer ahead and the
+      // change is safe, shift over. Cooldown prevents oscillation.
+      if (v.lastLaneChangeT != null && this.time - v.lastLaneChangeT < LC_COOLDOWN_SEC) continue;
+      const myGap = this.laneForwardGap(v, v.laneIndex, idx);
+      if (myGap > 40) continue; // already free-flowing; no incentive
+      let best = v.laneIndex;
+      let bestGap = myGap;
+      for (const cand of [v.laneIndex - 1, v.laneIndex + 1]) {
+        if (cand < 0 || cand >= lanes) continue;
+        const g = this.laneForwardGap(v, cand, idx);
+        if (g > bestGap + LC_DISCRETIONARY_GAIN_M && this.laneChangeSafe(v, cand, idx)) {
+          best = cand;
+          bestGap = g;
+        }
+      }
+      if (best !== v.laneIndex) {
+        v.laneIndex = best;
+        v.lastLaneChangeT = this.time;
+        this.updateRenderPos(v);
+      }
+    }
+  }
+
   private moveVehicles(dt: number) {
     let idx = this.buildLaneIndex();
 
@@ -405,6 +551,12 @@ export class Engine {
     // (a real bottleneck) instead of the blocked lane stalling permanently.
     this.applyMerges(idx);
     idx = this.buildLaneIndex();
+
+    // realism: discretionary + mandatory turn-lane changes, then re-index.
+    if (this.cfg.realism) {
+      this.applyLaneChanges(idx);
+      idx = this.buildLaneIndex();
+    }
 
     // pass 1: compute acceleration
     for (const v of this.vehicles) {
@@ -437,14 +589,30 @@ export class Engine {
     this.vehicles = survivors;
   }
 
+  /** Realism road-class speed factors. Calibration-tunable (set via Engine
+   *  static before construction) but defaults match the SUMO-calibrated values.
+   *  Legacy /simulation keeps the inline literals below, untouched. */
+  static REALISM_SPEED_FACTORS: Record<string, number> = {
+    arterial: 1.15,
+    sub_arterial: 1.0,
+    collector: 0.82,
+    local: 0.65,
+    motorway: 1.25,
+  };
+
   private desiredSpeed(v: Vehicle): number {
     const edge = this.net.edge(v.edgeId);
     let v0 = VEHICLE_DESIRED_MS[v.type];
     if (edge) {
-      const f =
-        edge.road_class === "arterial" ? 1 :
-        edge.road_class === "sub_arterial" ? 0.85 :
-        edge.road_class === "collector" ? 0.7 : 0.55;
+      let f: number;
+      if (this.cfg.realism) {
+        f = Engine.REALISM_SPEED_FACTORS[edge.road_class] ?? 0.65;
+      } else {
+        f =
+          edge.road_class === "arterial" ? 1 :
+          edge.road_class === "sub_arterial" ? 0.85 :
+          edge.road_class === "collector" ? 0.7 : 0.55;
+      }
       v0 *= f;
     }
     return v0;
@@ -517,21 +685,25 @@ export class Engine {
         }
       } else if (!priority) {
         // Unsignalized: minor road yields to major cross-traffic at junction
-        mustStop = this.mustYieldUnsignalized(v, edge.to, nextEdge);
+        mustStop = this.mustYieldUnsignalized(v, edge.to, nextEdge, idx);
       }
       // downstream space / closure gate (spillback)
       if (!mustStop) {
         if (this.closedEdges.has(nextEdge)) {
           mustStop = true;
         } else if (!priority) {
-          const headroom = this.headroom(idx, nextEdge, Math.min(v.laneIndex, this.net.laneCount(nextEdge) - 1));
-          if (headroom < v.lengthM + SAFE_GAP) mustStop = true;
+          const toLane = Math.min(v.laneIndex, this.net.laneCount(nextEdge) - 1);
+          const blocked = this.cfg.realism
+            ? !this.exitRoom(idx, nextEdge, toLane, v.lengthM)
+            : this.headroom(idx, nextEdge, toLane) < v.lengthM + SAFE_GAP;
+          if (blocked) mustStop = true;
         }
       }
       if (mustStop) {
-        const stopGap = edgeLen - v.distOnEdge - 1;
+        // Stop a realistic setback BEFORE the junction box, never on the node.
+        const stopGap = edgeLen - v.distOnEdge - this.stopLineSetback(edge.to);
         if (stopGap < gap) {
-          gap = stopGap;
+          gap = Math.max(0, stopGap);
           leaderV = 0;
         }
       }
@@ -540,32 +712,110 @@ export class Engine {
     return idmAccel(v.speed, gap, leaderV, params);
   }
 
-  /** Unsignalized junction: yield if a conflicting movement is active or major road has priority. */
-  private mustYieldUnsignalized(v: Vehicle, nodeId: string, nextEdge: string): boolean {
-    const myKey = movementKey(v.edgeId, nextEdge);
+  /** Unsignalized junction: gap-acceptance yield (Task 4).
+   *  Yields if (a) a conflicting movement already occupies the junction, or
+   *  (b) a higher-priority approach has approaching traffic whose time-gap to the
+   *  conflict point is below the critical headway. Uses the lane index for O(1)
+   *  leader lookup per approach lane instead of scanning every vehicle (Task 8). */
+  private mustYieldUnsignalized(
+    v: Vehicle,
+    nodeId: string,
+    nextEdge: string,
+    idx: Map<string, Map<number, Vehicle[]>>
+  ): boolean {
     const active = this.junctionActive.get(nodeId);
     if (active?.size) {
       for (const other of active) {
         const [oFrom, oTo] = other.split(">");
-        if (movementsConflict(v.edgeId, nextEdge, oFrom, oTo)) return true;
+        if (this.movementsConflict(v.edgeId, nextEdge, oFrom, oTo)) return true;
       }
     }
     const myPri = roadPri(this.net, v.edgeId);
-    // Check if a higher-priority approach has a vehicle near the stop line
+    // Critical headway (s): the minimum acceptable time-gap on the major road.
+    const CRITICAL_GAP_SEC = this.cfg.realism ? 4.5 : 3.5;
     for (const inc of this.net.incoming.get(nodeId) ?? []) {
       if (inc.id === v.edgeId) continue;
-      if (roadPri(this.net, inc.id) <= myPri) continue;
+      const otherPri = roadPri(this.net, inc.id);
+      if (otherPri < myPri) continue; // never yield to a strictly lower-priority road
+      if (otherPri === myPri) {
+        // Equal priority: legacy never yields here (collision/overlap). In realism,
+        // apply the give-way-to-the-right rule (left-hand traffic) so exactly one
+        // of the two conflicting approaches yields — no deadlock.
+        if (!this.cfg.realism) continue;
+        if (!this.approachOnRight(v.edgeId, inc.id)) continue;
+      }
       const lanes = this.net.laneCount(inc.id);
+      const incLen = this.net.edgeLength(inc.id);
+      const lanesByEdge = idx.get(inc.id);
       for (let lane = 0; lane < lanes; lane++) {
-        for (const o of this.vehicles) {
-          if (o.onConnector || o.arrived || o.edgeId !== inc.id || o.laneIndex !== lane) continue;
-          const distToEnd = this.net.edgeLength(inc.id) - o.distOnEdge;
-          if (distToEnd < 35 && o.speed < 8) return true;
-        }
+        // The closest-to-junction vehicle in this approach lane = last entry
+        // (lanes are sorted ascending by distOnEdge).
+        const arr = lanesByEdge?.get(lane);
+        if (!arr || !arr.length) continue;
+        const o = arr[arr.length - 1];
+        if (o.onConnector || o.arrived) continue;
+        const distToEnd = incLen - o.distOnEdge;
+        if (distToEnd > 60) continue; // too far to matter
+        // Time-gap to the conflict point. A near-stopped vehicle at the line
+        // still blocks (it has/road right-of-way), so treat low speed as ~now.
+        const tGap = o.speed > 0.5 ? distToEnd / o.speed : 0;
+        if (tGap < CRITICAL_GAP_SEC) return true;
       }
     }
-    void myKey;
     return false;
+  }
+
+  /** Local-metre chord of a movement: from the approach edge's end point to the
+   *  exit edge's start point. Cached per (from,to). Used for geometric conflict
+   *  detection (realism). The frame is an arbitrary flat projection — only
+   *  relative geometry matters for the crossing test. */
+  private chordCache = new Map<string, { ax: number; ay: number; bx: number; by: number }>();
+  private movementChord(fromEdge: string, toEdge: string) {
+    const key = `${fromEdge}>${toEdge}`;
+    const cached = this.chordCache.get(key);
+    if (cached) return cached;
+    const a = this.net.centreAt(fromEdge, this.net.edgeLength(fromEdge));
+    const b = this.net.centreAt(toEdge, 0);
+    // flat-earth metres relative to point a
+    const mPerLon = 111320 * Math.cos((a.lat * Math.PI) / 180);
+    const chord = {
+      ax: 0,
+      ay: 0,
+      bx: (b.lon - a.lon) * mPerLon,
+      by: (b.lat - a.lat) * 111320,
+    };
+    this.chordCache.set(key, chord);
+    return chord;
+  }
+
+  /** Whether two junction movements conflict. Realism: they conflict iff they
+   *  share the same exit edge (merge into one stream) OR their chords actually
+   *  cross. Non-crossing movements from different approaches (e.g. diverging
+   *  right turns) may run concurrently. Legacy: any different-approach pair
+   *  conflicts (preserved for /simulation). */
+  private movementsConflict(aFrom: string, aTo: string, bFrom: string, bTo: string): boolean {
+    if (aFrom === bFrom) return false; // same approach → queue, not conflict
+    if (!this.cfg.realism) return movementsConflictLegacy(aFrom, bFrom);
+    if (aTo === bTo) return true; // converge onto the same exit → merge conflict
+    const c1 = this.movementChord(aFrom, aTo);
+    const c2 = this.movementChord(bFrom, bTo);
+    return segmentsCross(c1.ax, c1.ay, c1.bx, c1.by, c2.ax, c2.ay, c2.bx, c2.by);
+  }
+
+  /** Give-way-to-the-right test (left-hand traffic). True if the `other` approach
+   *  arrives from my right, meaning I must yield to it. Uses each approach edge's
+   *  travel heading at the node; the right side is the clockwise quarter ahead. */
+  private approachOnRight(myEdge: string, otherEdge: string): boolean {
+    const myH = this.net.centreAt(myEdge, this.net.edgeLength(myEdge)).heading;
+    const otherH = this.net.centreAt(otherEdge, this.net.edgeLength(otherEdge)).heading;
+    // Relative bearing of the other approach's *origin* direction vs my heading.
+    // The other vehicle travels along otherH toward the node, so it comes FROM
+    // bearing (otherH + π). Right-of-me ⇒ that source is in my right hemisphere.
+    let rel = (otherH + Math.PI) - myH;
+    rel = ((rel % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI); // [0, 2π)
+    // In a standard heading frame (atan2(north, east)), turning right (clockwise)
+    // decreases angle; "from the right" lands in (π, 2π).
+    return rel > Math.PI;
   }
 
   private acquireJunction(nodeId: string, fromEdge: string, toEdge: string): boolean {
@@ -577,7 +827,7 @@ export class Engine {
     }
     for (const other of set) {
       const [oFrom, oTo] = other.split(">");
-      if (movementsConflict(fromEdge, toEdge, oFrom, oTo)) return false;
+      if (this.movementsConflict(fromEdge, toEdge, oFrom, oTo)) return false;
     }
     set.add(key);
     return true;
@@ -592,11 +842,56 @@ export class Engine {
     }
   }
 
+  /** Stop-line setback (m) before a junction node: vehicles hold this far back so
+   *  they never stop on/inside the intersection box. Approximated once per node
+   *  from the widest approach (more lanes / bigger junction → larger box) and
+   *  cached. In legacy (non-realism) mode this is the original 1 m. */
+  private setbackCache = new Map<string, number>();
+  private stopLineSetback(nodeId: string): number {
+    if (!this.cfg.realism) return LEGACY_STOP_SETBACK_M;
+    const cached = this.setbackCache.get(nodeId);
+    if (cached != null) return cached;
+    // Junction half-width ≈ widest crossing leg. Lane width ~3.4 m; add a small
+    // clearance. Bounded so huge multi-lane arterials don't push the stop line
+    // unrealistically far back.
+    let maxLanes = 1;
+    for (const e of this.net.incoming.get(nodeId) ?? []) maxLanes = Math.max(maxLanes, this.net.laneCount(e.id));
+    for (const e of this.net.outgoing.get(nodeId) ?? []) maxLanes = Math.max(maxLanes, this.net.laneCount(e.id));
+    const setback = Math.min(14, Math.max(3, maxLanes * 3.4 + 1.5));
+    this.setbackCache.set(nodeId, setback);
+    return setback;
+  }
+
   /** distance from the start of an edge/lane to the nearest vehicle (O(1) via index). */
   private headroom(idx: Map<string, Map<number, Vehicle[]>>, edgeId: string, lane: number): number {
     const arr = idx.get(edgeId)?.get(lane);
     if (!arr || !arr.length) return this.net.edgeLength(edgeId);
     return arr[0].distOnEdge; // sorted ascending by distOnEdge
+  }
+
+  /** Realism junction-blocking gate (Bug 3): is there room for the WHOLE vehicle
+   *  to clear the junction box onto the target lane? The plain `headroom` returns
+   *  only the nearest vehicle's nose, so a car could nose into a junction whose
+   *  exit is actually jammed. Here we require a contiguous free span at the lane
+   *  mouth ≥ vehLen + SAFE_GAP AND that the first downstream vehicle isn't sitting
+   *  jammed right at the entrance. O(1) — reads the sorted lane head only. */
+  private exitRoom(
+    idx: Map<string, Map<number, Vehicle[]>>,
+    edgeId: string,
+    lane: number,
+    vehLen: number
+  ): boolean {
+    const need = vehLen + SAFE_GAP;
+    const arr = idx.get(edgeId)?.get(lane);
+    if (!arr || !arr.length) return this.net.edgeLength(edgeId) >= need;
+    const lead = arr[0];
+    // Free span from the lane mouth to the lead vehicle's tail.
+    const span = lead.distOnEdge - lead.lengthM;
+    if (span < need) return false;
+    // Lead vehicle queued at/near the mouth (slow & close) ⇒ spillback risk even
+    // if its tail nominally leaves room; hold back to keep the box clear.
+    if (lead.speed < 1 && lead.distOnEdge < need + lead.lengthM + 2) return false;
+    return true;
   }
 
   private handleEdgeEnd(v: Vehicle, idx: Map<string, Map<number, Vehicle[]>>) {
@@ -607,6 +902,14 @@ export class Engine {
       v.arrived = true;
       return;
     }
+    const jNode = this.net.edge(v.edgeId)!.to;
+    // Where a blocked vehicle is held: at the stop line (clear of the junction
+    // box) in realism mode, at the node in legacy mode.
+    const holdDist = edgeLen - (this.cfg.realism ? this.stopLineSetback(jNode) : 0);
+    const hold = () => {
+      v.distOnEdge = Math.min(v.distOnEdge, holdDist);
+      v.speed = 0;
+    };
     const nextEdge = v.route[v.routeIdx + 1];
     // closed → try reroute from current node
     if (this.closedEdges.has(nextEdge)) {
@@ -615,23 +918,23 @@ export class Engine {
         v.route = [v.edgeId, ...rr];
         v.routeIdx = 0;
       } else {
-        v.distOnEdge = edgeLen;
-        v.speed = 0;
+        hold();
         return;
       }
     }
     const target = v.route[v.routeIdx + 1];
     const toLane = Math.min(v.laneIndex, this.net.laneCount(target) - 1);
     const priority = v.emergency || v.isResource;
-    if (!priority && this.headroom(idx, target, toLane) < v.lengthM + SAFE_GAP) {
-      v.distOnEdge = edgeLen;
-      v.speed = 0;
+    // Junction-blocking rule: don't enter unless the whole vehicle fits downstream.
+    const noRoom = this.cfg.realism
+      ? !this.exitRoom(idx, target, toLane, v.lengthM)
+      : this.headroom(idx, target, toLane) < v.lengthM + SAFE_GAP;
+    if (!priority && noRoom) {
+      hold();
       return;
     }
-    const jNode = this.net.edge(v.edgeId)!.to;
     if (!priority && !this.acquireJunction(jNode, v.edgeId, target)) {
-      v.distOnEdge = edgeLen;
-      v.speed = 0;
+      hold();
       return;
     }
     // enter turn connector
@@ -645,9 +948,36 @@ export class Engine {
     v.connectorJunction = jNode;
   }
 
+  /** Target speed through a turn connector from its turn type + length (realism).
+   *  A longer/sweeping connector lets a vehicle hold more speed (lat-accel bound);
+   *  priority vehicles take turns a bit faster. */
+  private turnTargetSpeed(v: Vehicle, conn: { lengthM: number }): number {
+    const turn = turnKind(this.net, v.connectorFrom!, v.connectorTo!);
+    let target = TURN_SPEED_MS[turn];
+    // Geometric bound: a sharper (shorter) connector implies a tighter radius;
+    // approximate radius ~ lengthM/2 and cap by v = sqrt(a_lat * r).
+    const r = Math.max(2, conn.lengthM / 2);
+    const geomCap = Math.sqrt(TURN_LAT_ACCEL * r);
+    target = Math.min(target, Math.max(geomCap, TURN_MIN_MS));
+    if (v.emergency || v.isResource) target *= 1.3;
+    return Math.max(TURN_MIN_MS, target);
+  }
+
   private advanceConnector(v: Vehicle, dt: number) {
     const conn = this.net.connector(v.connectorFrom!, v.connectorFromLane ?? 0, v.connectorTo!, v.connectorToLane ?? 0);
-    v.speed = Math.max(1.5, v.speed); // crawl through the turn
+    if (this.cfg.realism) {
+      // Accelerate/decelerate smoothly toward the geometric turn speed instead of
+      // snapping to a flat crawl. Bounded by IDM accel/decel so entry & exit are smooth.
+      const target = this.turnTargetSpeed(v, conn);
+      const a = target > v.speed ? DEFAULT_IDM.aMax : DEFAULT_IDM.b;
+      const step = a * dt;
+      v.speed = target > v.speed
+        ? Math.min(target, v.speed + step)
+        : Math.max(target, v.speed - step);
+      v.speed = Math.max(TURN_MIN_MS, v.speed);
+    } else {
+      v.speed = Math.max(1.5, v.speed); // crawl through the turn
+    }
     v.connectorT += v.speed * dt;
     v.distanceTravelled += v.speed * dt;
     if (v.connectorT >= conn.lengthM) {

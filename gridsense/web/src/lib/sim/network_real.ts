@@ -21,12 +21,20 @@ export function initRealNetwork(): Promise<SimNetwork> {
     // We build an equivalent instance by constructing a vanilla SimNetwork
     // (which will initialise from the bundled small network), then we
     // completely replace its internal state with the real data.
-    const net = new SimNetwork();
-    loadIntoNetwork(net, data);
+    const net = buildNetworkFrom(data);
     overrideNetwork(net);
     return net;
   })();
   return initPromise;
+}
+
+/** Construct a SimNetwork from raw sim_network JSON (no fetch, no singleton
+ *  side-effect). Shared by the runtime loader above and dev harnesses that need
+ *  to build a network from a JSON object directly (e.g. a CBD crop). */
+export function buildNetworkFrom(data: { meta: { center: [number, number] }; nodes: RawNode[]; edges: RawEdge[] }): SimNetwork {
+  const net = new SimNetwork();
+  loadIntoNetwork(net, data);
+  return net;
 }
 
 interface RawNode {

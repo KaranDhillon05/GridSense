@@ -8,7 +8,10 @@
     "start": "next start",
     "lint": "eslint",
     "export:junctions": "node scripts/export-junction-audit.mjs",
-    "validate:routing": "node scripts/validate-routing.mjs"
+    "validate:routing": "node scripts/validate-routing.mjs",
+    "parity:save": "node --import ./scripts/register.mjs scripts/snapshot-parity.mjs --save",
+    "parity:check": "node --import ./scripts/register.mjs scripts/snapshot-parity.mjs --check",
+    "calibrate": "node --import ./scripts/register.mjs scripts/calibrate.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.40.0",

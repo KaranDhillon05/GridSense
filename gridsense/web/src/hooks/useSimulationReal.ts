@@ -46,8 +46,8 @@ export function useSimulationReal() {
       .then(() => {
         if (cancelled) return;
         // Network singleton is now the real one — engines will use it
-        liveRef.current = new Engine({ seed: SEED, spawnPerMin: 30, applyInterventions: true });
-        baseRef.current = new Engine({ seed: SEED, spawnPerMin: 30, applyInterventions: false });
+        liveRef.current = new Engine({ seed: SEED, spawnPerMin: 30, applyInterventions: true, realism: true });
+        baseRef.current = new Engine({ seed: SEED, spawnPerMin: 30, applyInterventions: false, realism: true });
 
         // Prime with 220 warm-up steps
         for (let i = 0; i < 220; i++) {

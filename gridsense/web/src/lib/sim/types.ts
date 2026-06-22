@@ -87,6 +87,8 @@ export interface Vehicle {
   connectorJunction?: string;
   emergency: boolean;
   isResource: boolean; // dispatched response vehicle (not counted in throughput demand)
+  // Realism only: sim-time of the last discretionary lane change (oscillation cooldown).
+  lastLaneChangeT?: number;
 }
 
 export type SignalState = "red" | "yellow" | "green";
@@ -99,6 +101,10 @@ export interface SignalPhase {
   /** Incoming edges with protected left turns (separate sub-phase). */
   leftTurnEdges?: string[];
   leftTurnSec?: number;
+  /** Level-2 actuated bounds. minGreen guarantees a floor before gap-out;
+   *  maxGreen caps demand-driven extension. Optional (fixed-time ignores them). */
+  minGreen?: number;
+  maxGreen?: number;
 }
 
 export interface JunctionSignal {
@@ -109,12 +115,32 @@ export interface JunctionSignal {
   inYellow: boolean;
   inAllRed: boolean;
   inLeftTurn: boolean;
-  mode: "fixed" | "adaptive" | "manual" | "emergency" | "failed";
+  mode: "fixed" | "adaptive" | "actuated" | "manual" | "emergency" | "failed";
   // Per incoming edge, the current light. Computed each step.
   edgeState: Map<string, SignalState>;
   // adaptive/override bookkeeping
   baseGreen: number[]; // original green durations, for restoring after adaptive
   overrideEdge?: string; // forced green (emergency / manual)
+}
+
+/** Realistic junction taxonomy (Task 1). Drives signal placement + merge rules. */
+export type JunctionKindClass =
+  | "major_signalized" // arterial × arterial cross — full signal
+  | "minor_signalized" // one major leg, multi-lane — light signal
+  | "unsignalized_t" // T-junction, priority/yield, no signal
+  | "unsignalized_merge" // minor road joins major — gap acceptance
+  | "slip_service_merge" // slip lane / service road — gap acceptance
+  | "roundabout" // yield-on-entry to circulating traffic
+  | "pass_through"; // degree <= 2, no control needed
+
+export interface JunctionClass {
+  nodeId: string;
+  kind: JunctionKindClass;
+  shouldSignalize: boolean;
+  undirectedDegree: number;
+  majorLegs: number; // legs in {arterial, sub_arterial, motorway}
+  /** The major (priority) incoming edges at an unsignalized junction, if any. */
+  majorIncoming: string[];
 }
 
 export type IncidentType =

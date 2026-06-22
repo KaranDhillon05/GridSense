@@ -8,6 +8,11 @@ import type { JunctionSignal, SignalPhase, SignalState } from "./types";
 
 const ALL_RED_SEC = 2;
 const LEFT_TURN_SEC = 8;
+// Level-2 actuated controller bounds & thresholds.
+const MIN_GREEN_SEC = 5;
+const MAX_GREEN_SEC = 45;
+/** Queue (m) on a served approach above which we keep extending green. */
+const GAP_OUT_QUEUE_M = 5;
 
 function bearingDeg(net: SimNetwork, edgeId: string): number {
   const h = net.centreAt(edgeId, net.edgeLength(edgeId)).heading;
@@ -23,9 +28,20 @@ function turnKind(fromBearing: number, toBearing: number): "straight" | "left" |
   return cw <= 180 ? "right" : "left";
 }
 
-export function buildSignals(net: SimNetwork): Map<string, JunctionSignal> {
+export interface BuildSignalsOpts {
+  /** Realistic-placement gate: only nodes whose JunctionClass.shouldSignalize is
+   *  true keep a signal. When omitted (legacy/protected path), every flagged
+   *  node is built exactly as before. */
+  signalizedNodes?: Set<string>;
+  /** Build controllers in actuated (Level-2) mode instead of fixed (Level-1). */
+  actuated?: boolean;
+}
+
+export function buildSignals(net: SimNetwork, opts: BuildSignalsOpts = {}): Map<string, JunctionSignal> {
   const signals = new Map<string, JunctionSignal>();
-  for (const nodeId of net.signalized) {
+  const nodes = opts.signalizedNodes ?? net.signalized;
+  for (const nodeId of nodes) {
+    if (!net.signalized.has(nodeId)) continue; // never add signals beyond the data flags
     const incoming = net.incoming.get(nodeId) ?? [];
     if (incoming.length < 2) continue;
 
@@ -62,12 +78,16 @@ export function buildSignals(net: SimNetwork): Map<string, JunctionSignal> {
           }
         }
       }
+      const greenSec = Math.min(22, 10 + lanes * 2);
       return {
         greenEdges: g.edges,
-        greenSec: Math.min(22, 10 + lanes * 2),
+        greenSec,
         yellowSec: 3,
         leftTurnEdges: [...new Set(leftTurnFrom)],
         leftTurnSec: LEFT_TURN_SEC,
+        // Actuated bounds: guarantee a minimum service, cap demand extension.
+        minGreen: Math.max(MIN_GREEN_SEC, Math.min(greenSec, 8)),
+        maxGreen: Math.min(MAX_GREEN_SEC, greenSec + 18),
       };
     });
     // A signal is only meaningful where movements conflict (>=2 phases). A single
@@ -83,7 +103,7 @@ export function buildSignals(net: SimNetwork): Map<string, JunctionSignal> {
       inYellow: false,
       inAllRed: false,
       inLeftTurn: false,
-      mode: "fixed",
+      mode: opts.actuated ? "actuated" : "fixed",
       edgeState: new Map(),
       baseGreen: phases.map((p) => p.greenSec),
     });
@@ -161,6 +181,40 @@ export interface SignalStepOpts {
   queueByEdge?: Map<string, number>;
 }
 
+/** Max queue (m) across the edges a phase serves — its current demand. */
+function phaseDemand(phase: SignalPhase, queueByEdge?: Map<string, number>): number {
+  if (!queueByEdge) return 0;
+  let q = 0;
+  for (const e of phase.greenEdges) q = Math.max(q, queueByEdge.get(e) ?? 0);
+  return q;
+}
+
+/** Level-2 gap-out / max-out: the effective green the timer is compared against.
+ *  Below minGreen we always hold; past minGreen we keep green only while the
+ *  served approach still has a queue, never beyond maxGreen. */
+function actuatedGreen(sig: JunctionSignal, phase: SignalPhase, queueByEdge: Map<string, number>): number {
+  const minG = phase.minGreen ?? MIN_GREEN_SEC;
+  const maxG = phase.maxGreen ?? MAX_GREEN_SEC;
+  if (sig.timer < minG) return minG; // honour the floor
+  const demand = phaseDemand(phase, queueByEdge);
+  if (demand <= GAP_OUT_QUEUE_M) return sig.timer; // gap-out: end this step
+  return maxG; // keep serving until the queue clears or max-green caps it
+}
+
+/** Pick the next phase index to serve, skipping zero-demand phases (Level-2).
+ *  Always advances at least one phase; falls back to the plain next phase if
+ *  nothing has demand (keeps a baseline cycle running). */
+function nextServedPhase(sig: JunctionSignal, queueByEdge?: Map<string, number>): number {
+  const n = sig.phases.length;
+  const start = (sig.phaseIdx + 1) % n;
+  if (!queueByEdge) return start;
+  for (let i = 0; i < n; i++) {
+    const idx = (start + i) % n;
+    if (phaseDemand(sig.phases[idx], queueByEdge) > 0) return idx;
+  }
+  return start;
+}
+
 export function stepSignal(sig: JunctionSignal, dt: number, opts: SignalStepOpts = {}, net?: SimNetwork) {
   if (sig.mode === "failed") {
     recomputeStates(sig, net);
@@ -176,7 +230,9 @@ export function stepSignal(sig: JunctionSignal, dt: number, opts: SignalStepOpts
     if (sig.timer >= ALL_RED_SEC) {
       sig.inAllRed = false;
       sig.timer = 0;
-      sig.phaseIdx = (sig.phaseIdx + 1) % sig.phases.length;
+      // Level-2: skip ahead to the next phase that actually has waiting demand,
+      // so an empty approach doesn't cost the whole network a pointless all-stop.
+      sig.phaseIdx = nextServedPhase(sig, opts.queueByEdge);
     }
     recomputeStates(sig, net);
     return;
@@ -189,6 +245,11 @@ export function stepSignal(sig: JunctionSignal, dt: number, opts: SignalStepOpts
     const q = Math.max(0, ...phase.greenEdges.map((e) => opts.queueByEdge!.get(e) ?? 0));
     if (q > 25) green = Math.min(sig.baseGreen[sig.phaseIdx] * 1.5, phase.greenSec + 0.5);
     else if (q < 4) green = Math.max(8, sig.baseGreen[sig.phaseIdx] * 0.7);
+  } else if (sig.mode === "actuated" && opts.queueByEdge) {
+    // Level-2 actuated: after min-green, gap-out when the served approach clears;
+    // otherwise keep serving up to max-green. Computed as an effective green
+    // threshold the timer is compared against below.
+    green = actuatedGreen(sig, phase, opts.queueByEdge);
   }
 
   sig.timer += dt;

@@ -169,21 +169,27 @@ export function SimCanvasLayer({
           ctx.stroke();
           ctx.globalAlpha = 1;
         }
-        for (const node of eng.net.nodes.values()) {
-          if (!bounds.contains(L.latLng(node.lat, node.lon))) continue;
-          const [x, y] = project(node.lat, node.lon);
-          const allE = [
-            ...(eng.net.outgoing.get(node.id) ?? []),
-            ...(eng.net.incoming.get(node.id) ?? []),
-          ].filter((e) => (eng.net.edgeLevel.get(e.id) ?? 0) === 0);
-          if (!allE.length) continue;
-          const maxLanes = allE.reduce((m, e) => Math.max(m, e.lanes), 1);
-          const outerM = 1.2 + (maxLanes + 0.5) * 3.4;
-          const r = Math.max(2 * dpr, outerM * ppm);
-          ctx.beginPath();
-          ctx.arc(x, y, r, 0, Math.PI * 2);
-          ctx.fillStyle = "rgba(58,63,75,0.85)";
-          ctx.fill();
+        // Per-node junction "blobs" (filled grey discs) are a legacy ground
+        // decoration. They make the realism map look cluttered, so skip them
+        // when the engine is in realism mode; the protected /simulation engine
+        // (no realism flag) keeps them unchanged.
+        if (!eng.cfg.realism) {
+          for (const node of eng.net.nodes.values()) {
+            if (!bounds.contains(L.latLng(node.lat, node.lon))) continue;
+            const [x, y] = project(node.lat, node.lon);
+            const allE = [
+              ...(eng.net.outgoing.get(node.id) ?? []),
+              ...(eng.net.incoming.get(node.id) ?? []),
+            ].filter((e) => (eng.net.edgeLevel.get(e.id) ?? 0) === 0);
+            if (!allE.length) continue;
+            const maxLanes = allE.reduce((m, e) => Math.max(m, e.lanes), 1);
+            const outerM = 1.2 + (maxLanes + 0.5) * 3.4;
+            const r = Math.max(2 * dpr, outerM * ppm);
+            ctx.beginPath();
+            ctx.arc(x, y, r, 0, Math.PI * 2);
+            ctx.fillStyle = "rgba(58,63,75,0.85)";
+            ctx.fill();
+          }
         }
       }
 

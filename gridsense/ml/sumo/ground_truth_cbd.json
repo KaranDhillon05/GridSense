@@ -1,0 +1,2668 @@
+{
+  "meta": {
+    "source": "SUMO ground truth (CBD crop of sim_network_real.json)",
+    "bbox": {
+      "min_lat": 12.965,
+      "max_lat": 12.985,
+      "min_lon": 77.595,
+      "max_lon": 77.615
+    },
+    "seed": 1337,
+    "spawnPerMin": 30,
+    "warmupS": 44,
+    "windowS": 600,
+    "stepLength": 0.2,
+    "sumoVersion": "1.27.0"
+  },
+  "network": {
+    "meanTravelTimeMin": 3.972,
+    "totalDelayVehMin": 130.458,
+    "throughputPerMin": 8.7,
+    "meanWaitMin": 0.827,
+    "tripCount": 87,
+    "meanSpeedKmh": 29.45,
+    "maxOccupancyPct": 26.9
+  },
+  "perEdge": {
+    "re20000007": {
+      "speedKmh": 44.35,
+      "occupancyPct": 0.19,
+      "waitingTime": 0.0
+    },
+    "re20000008": {
+      "speedKmh": 45.0,
+      "occupancyPct": 0.4,
+      "waitingTime": 0.0
+    },
+    "re20000024": {
+      "speedKmh": 39.13,
+      "occupancyPct": 0.6,
+      "waitingTime": 0.0
+    },
+    "re20000025": {
+      "speedKmh": 32.69,
+      "occupancyPct": 0.83,
+      "waitingTime": 0.0
+    },
+    "re20000026": {
+      "speedKmh": 37.04,
+      "occupancyPct": 0.87,
+      "waitingTime": 0.2
+    },
+    "re20000027": {
+      "speedKmh": 38.16,
+      "occupancyPct": 1.3,
+      "waitingTime": 0.0
+    },
+    "re20000028": {
+      "speedKmh": 19.33,
+      "occupancyPct": 2.95,
+      "waitingTime": 0.0
+    },
+    "re20000045": {
+      "speedKmh": 23.98,
+      "occupancyPct": 0.48,
+      "waitingTime": 0.0
+    },
+    "re20000049": {
+      "speedKmh": 45.58,
+      "occupancyPct": 0.47,
+      "waitingTime": 0.0
+    },
+    "re20000050": {
+      "speedKmh": 47.59,
+      "occupancyPct": 0.34,
+      "waitingTime": 0.0
+    },
+    "re20000051": {
+      "speedKmh": 30.17,
+      "occupancyPct": 0.66,
+      "waitingTime": 0.0
+    },
+    "re20000052": {
+      "speedKmh": 26.57,
+      "occupancyPct": 1.95,
+      "waitingTime": 0.0
+    },
+    "re20000053": {
+      "speedKmh": 45.65,
+      "occupancyPct": 1.09,
+      "waitingTime": 0.0
+    },
+    "re20000054": {
+      "speedKmh": 30.67,
+      "occupancyPct": 0.53,
+      "waitingTime": 0.0
+    },
+    "re20000055": {
+      "speedKmh": 29.81,
+      "occupancyPct": 0.56,
+      "waitingTime": 0.0
+    },
+    "re20000056": {
+      "speedKmh": 39.1,
+      "occupancyPct": 0.89,
+      "waitingTime": 0.0
+    },
+    "re20000057": {
+      "speedKmh": 32.98,
+      "occupancyPct": 1.21,
+      "waitingTime": 0.0
+    },
+    "re20000058": {
+      "speedKmh": 37.98,
+      "occupancyPct": 0.99,
+      "waitingTime": 0.0
+    },
+    "re20000059": {
+      "speedKmh": 35.5,
+      "occupancyPct": 0.82,
+      "waitingTime": 0.0
+    },
+    "re20000060": {
+      "speedKmh": 18.22,
+      "occupancyPct": 0.82,
+      "waitingTime": 0.0
+    },
+    "re20000062": {
+      "speedKmh": 22.79,
+      "occupancyPct": 0.45,
+      "waitingTime": 8.8
+    },
+    "re20000063": {
+      "speedKmh": 25.67,
+      "occupancyPct": 0.5,
+      "waitingTime": 0.0
+    },
+    "re20000099": {
+      "speedKmh": 26.24,
+      "occupancyPct": 2.49,
+      "waitingTime": 0.0
+    },
+    "re20000108": {
+      "speedKmh": 6.66,
+      "occupancyPct": 2.07,
+      "waitingTime": 190.4
+    },
+    "re20000254": {
+      "speedKmh": 29.09,
+      "occupancyPct": 0.41,
+      "waitingTime": 92.2
+    },
+    "re20000255": {
+      "speedKmh": 1.26,
+      "occupancyPct": 4.35,
+      "waitingTime": 71.8
+    },
+    "re20000256": {
+      "speedKmh": 4.72,
+      "occupancyPct": 2.57,
+      "waitingTime": 32.2
+    },
+    "re20000320": {
+      "speedKmh": 30.42,
+      "occupancyPct": 0.35,
+      "waitingTime": 0.0
+    },
+    "re20000321": {
+      "speedKmh": 29.23,
+      "occupancyPct": 0.35,
+      "waitingTime": 0.0
+    },
+    "re20000324": {
+      "speedKmh": 29.59,
+      "occupancyPct": 0.11,
+      "waitingTime": 0.0
+    },
+    "re20000325": {
+      "speedKmh": 28.15,
+      "occupancyPct": 0.08,
+      "waitingTime": 0.0
+    },
+    "re20000326": {
+      "speedKmh": 26.78,
+      "occupancyPct": 0.17,
+      "waitingTime": 0.0
+    },
+    "re20000327": {
+      "speedKmh": 28.15,
+      "occupancyPct": 0.08,
+      "waitingTime": 0.0
+    },
+    "re20000328": {
+      "speedKmh": 28.12,
+      "occupancyPct": 0.07,
+      "waitingTime": 0.0
+    },
+    "re20000362": {
+      "speedKmh": 45.25,
+      "occupancyPct": 0.83,
+      "waitingTime": 0.0
+    },
+    "re20000364": {
+      "speedKmh": 33.59,
+      "occupancyPct": 0.07,
+      "waitingTime": 0.0
+    },
+    "re20000365": {
+      "speedKmh": 41.62,
+      "occupancyPct": 0.06,
+      "waitingTime": 0.0
+    },
+    "re20000366": {
+      "speedKmh": 35.35,
+      "occupancyPct": 0.58,
+      "waitingTime": 0.0
+    },
+    "re20000367": {
+      "speedKmh": 28.22,
+      "occupancyPct": 0.51,
+      "waitingTime": 0.0
+    },
+    "re20000368": {
+      "speedKmh": 41.54,
+      "occupancyPct": 0.02,
+      "waitingTime": 0.0
+    },
+    "re20000493": {
+      "speedKmh": 20.99,
+      "occupancyPct": 0.16,
+      "waitingTime": 0.0
+    },
+    "re20000506": {
+      "speedKmh": 40.25,
+      "occupancyPct": 0.44,
+      "waitingTime": 0.0
+    },
+    "re20000514": {
+      "speedKmh": 3.31,
+      "occupancyPct": 1.1,
+      "waitingTime": 63.8
+    },
+    "re20000515": {
+      "speedKmh": 37.22,
+      "occupancyPct": 0.46,
+      "waitingTime": 0.0
+    },
+    "re20000516": {
+      "speedKmh": 49.07,
+      "occupancyPct": 0.08,
+      "waitingTime": 0.0
+    },
+    "re20000517": {
+      "speedKmh": 28.12,
+      "occupancyPct": 0.14,
+      "waitingTime": 40.6
+    },
+    "re20000551": {
+      "speedKmh": 24.34,
+      "occupancyPct": 1.55,
+      "waitingTime": 0.0
+    },
+    "re20000552": {
+      "speedKmh": 28.08,
+      "occupancyPct": 1.08,
+      "waitingTime": 0.0
+    },
+    "re20000553": {
+      "speedKmh": 19.62,
+      "occupancyPct": 1.62,
+      "waitingTime": 0.0
+    },
+    "re20000554": {
+      "speedKmh": 29.45,
+      "occupancyPct": 0.82,
+      "waitingTime": 0.0
+    },
+    "re20000555": {
+      "speedKmh": 28.44,
+      "occupancyPct": 0.25,
+      "waitingTime": 0.0
+    },
+    "re20000557": {
+      "speedKmh": 28.66,
+      "occupancyPct": 0.25,
+      "waitingTime": 0.0
+    },
+    "re20000561": {
+      "speedKmh": 36.25,
+      "occupancyPct": 0.13,
+      "waitingTime": 0.0
+    },
+    "re20000562": {
+      "speedKmh": 25.96,
+      "occupancyPct": 0.13,
+      "waitingTime": 0.0
+    },
+    "re20000563": {
+      "speedKmh": 17.06,
+      "occupancyPct": 0.14,
+      "waitingTime": 0.0
+    },
+    "re20000565": {
+      "speedKmh": 28.66,
+      "occupancyPct": 0.44,
+      "waitingTime": 0.0
+    },
+    "re20000567": {
+      "speedKmh": 28.94,
+      "occupancyPct": 0.14,
+      "waitingTime": 0.0
+    },
+    "re20000568": {
+      "speedKmh": 28.48,
+      "occupancyPct": 0.11,
+      "waitingTime": 0.0
+    },
+    "re20000569": {
+      "speedKmh": 28.91,
+      "occupancyPct": 0.14,
+      "waitingTime": 0.0
+    },
+    "re20000571": {
+      "speedKmh": 28.84,
+      "occupancyPct": 0.14,
+      "waitingTime": 0.0
+    },
+    "re20000573": {
+      "speedKmh": 28.76,
+      "occupancyPct": 0.14,
+      "waitingTime": 0.0
+    },
+    "re20000575": {
+      "speedKmh": 28.51,
+      "occupancyPct": 0.13,
+      "waitingTime": 0.0
+    },
+    "re20000576": {
+      "speedKmh": 20.92,
+      "occupancyPct": 0.11,
+      "waitingTime": 0.0
+    },
+    "re20000577": {
+      "speedKmh": 28.04,
+      "occupancyPct": 0.1,
+      "waitingTime": 0.0
+    },
+    "re20000578": {
+      "speedKmh": 21.1,
+      "occupancyPct": 0.06,
+      "waitingTime": 0.0
+    },
+    "re20000579": {
+      "speedKmh": 26.39,
+      "occupancyPct": 0.14,
+      "waitingTime": 0.0
+    },
+    "re20000580": {
+      "speedKmh": 23.65,
+      "occupancyPct": 0.06,
+      "waitingTime": 0.0
+    },
+    "re20000581": {
+      "speedKmh": 23.4,
+      "occupancyPct": 0.2,
+      "waitingTime": 0.0
+    },
+    "re20000582": {
+      "speedKmh": 25.52,
+      "occupancyPct": 0.05,
+      "waitingTime": 0.0
+    },
+    "re20000583": {
+      "speedKmh": 30.13,
+      "occupancyPct": 0.07,
+      "waitingTime": 0.0
+    },
+    "re20000584": {
+      "speedKmh": 28.55,
+      "occupancyPct": 0.12,
+      "waitingTime": 0.0
+    },
+    "re20000585": {
+      "speedKmh": 31.1,
+      "occupancyPct": 0.03,
+      "waitingTime": 0.0
+    },
+    "re20000586": {
+      "speedKmh": 29.34,
+      "occupancyPct": 0.13,
+      "waitingTime": 0.0
+    },
+    "re20000587": {
+      "speedKmh": 21.28,
+      "occupancyPct": 0.15,
+      "waitingTime": 0.0
+    },
+    "re20000588": {
+      "speedKmh": 26.21,
+      "occupancyPct": 0.19,
+      "waitingTime": 0.0
+    },
+    "re20000589": {
+      "speedKmh": 12.35,
+      "occupancyPct": 0.19,
+      "waitingTime": 0.0
+    },
+    "re20000590": {
+      "speedKmh": 19.48,
+      "occupancyPct": 0.27,
+      "waitingTime": 0.0
+    },
+    "re20000597": {
+      "speedKmh": 15.37,
+      "occupancyPct": 0.23,
+      "waitingTime": 0.0
+    },
+    "re20001057": {
+      "speedKmh": 35.89,
+      "occupancyPct": 0.22,
+      "waitingTime": 0.0
+    },
+    "re20001059": {
+      "speedKmh": 30.02,
+      "occupancyPct": 0.26,
+      "waitingTime": 0.0
+    },
+    "re20001338": {
+      "speedKmh": 32.9,
+      "occupancyPct": 0.02,
+      "waitingTime": 0.0
+    },
+    "re20001340": {
+      "speedKmh": 25.92,
+      "occupancyPct": 0.09,
+      "waitingTime": 0.0
+    },
+    "re20001889": {
+      "speedKmh": 12.56,
+      "occupancyPct": 0.07,
+      "waitingTime": 19.4
+    },
+    "re20001903": {
+      "speedKmh": 29.2,
+      "occupancyPct": 0.06,
+      "waitingTime": 0.0
+    },
+    "re20002763": {
+      "speedKmh": 27.65,
+      "occupancyPct": 0.17,
+      "waitingTime": 0.0
+    },
+    "re20002764": {
+      "speedKmh": 29.77,
+      "occupancyPct": 0.16,
+      "waitingTime": 3.8
+    },
+    "re20003020": {
+      "speedKmh": 28.12,
+      "occupancyPct": 0.07,
+      "waitingTime": 0.0
+    },
+    "re20003032": {
+      "speedKmh": 24.3,
+      "occupancyPct": 0.08,
+      "waitingTime": 0.0
+    },
+    "re20003160": {
+      "speedKmh": 34.06,
+      "occupancyPct": 0.01,
+      "waitingTime": 0.0
+    },
+    "re20003573": {
+      "speedKmh": 21.56,
+      "occupancyPct": 0.09,
+      "waitingTime": 0.0
+    },
+    "re20003574": {
+      "speedKmh": 20.66,
+      "occupancyPct": 0.44,
+      "waitingTime": 0.0
+    },
+    "re20003575": {
+      "speedKmh": 17.06,
+      "occupancyPct": 0.12,
+      "waitingTime": 0.0
+    },
+    "re20003576": {
+      "speedKmh": 19.8,
+      "occupancyPct": 0.37,
+      "waitingTime": 0.0
+    },
+    "re20003577": {
+      "speedKmh": 27.4,
+      "occupancyPct": 0.07,
+      "waitingTime": 0.0
+    },
+    "re20003578": {
+      "speedKmh": 20.74,
+      "occupancyPct": 0.22,
+      "waitingTime": 0.0
+    },
+    "re20003580": {
+      "speedKmh": 21.64,
+      "occupancyPct": 0.61,
+      "waitingTime": 0.0
+    },
+    "re20003582": {
+      "speedKmh": 22.5,
+      "occupancyPct": 0.43,
+      "waitingTime": 0.0
+    },
+    "re20003586": {
+      "speedKmh": 21.64,
+      "occupancyPct": 0.13,
+      "waitingTime": 0.0
+    },
+    "re20003587": {
+      "speedKmh": 20.05,
+      "occupancyPct": 0.23,
+      "waitingTime": 0.0
+    },
+    "re20003588": {
+      "speedKmh": 25.96,
+      "occupancyPct": 0.1,
+      "waitingTime": 0.0
+    },
+    "re20003589": {
+      "speedKmh": 25.92,
+      "occupancyPct": 0.2,
+      "waitingTime": 0.0
+    },
+    "re20003590": {
+      "speedKmh": 21.06,
+      "occupancyPct": 0.32,
+      "waitingTime": 0.0
+    },
+    "re20003595": {
+      "speedKmh": 32.98,
+      "occupancyPct": 0.06,
+      "waitingTime": 0.0
+    },
+    "re20003597": {
+      "speedKmh": 30.28,
+      "occupancyPct": 0.06,
+      "waitingTime": 0.0
+    },
+    "re20003599": {
+      "speedKmh": 22.21,
+      "occupancyPct": 0.16,
+      "waitingTime": 0.0
+    },
+    "re20003601": {
+      "speedKmh": 24.34,
+      "occupancyPct": 0.11,
+      "waitingTime": 0.0
+    },
+    "re20003604": {
+      "speedKmh": 23.83,
+      "occupancyPct": 0.3,
+      "waitingTime": 0.0
+    },
+    "re20003606": {
+      "speedKmh": 22.82,
+      "occupancyPct": 0.32,
+      "waitingTime": 0.0
+    },
+    "re20003608": {
+      "speedKmh": 26.64,
+      "occupancyPct": 0.36,
+      "waitingTime": 0.0
+    },
+    "re20003611": {
+      "speedKmh": 21.31,
+      "occupancyPct": 0.22,
+      "waitingTime": 0.0
+    },
+    "re20003612": {
+      "speedKmh": 18.61,
+      "occupancyPct": 0.1,
+      "waitingTime": 0.0
+    },
+    "re20003614": {
+      "speedKmh": 24.16,
+      "occupancyPct": 0.11,
+      "waitingTime": 0.0
+    },
+    "re20004008": {
+      "speedKmh": 53.17,
+      "occupancyPct": 0.03,
+      "waitingTime": 0.0
+    },
+    "re20004009": {
+      "speedKmh": 32.11,
+      "occupancyPct": 0.25,
+      "waitingTime": 0.0
+    },
+    "re20007145": {
+      "speedKmh": 28.69,
+      "occupancyPct": 0.25,
+      "waitingTime": 0.0
+    },
+    "re20007146": {
+      "speedKmh": 21.46,
+      "occupancyPct": 0.11,
+      "waitingTime": 0.0
+    },
+    "re20007189": {
+      "speedKmh": 38.56,
+      "occupancyPct": 0.31,
+      "waitingTime": 0.0
+    },
+    "re20007190": {
+      "speedKmh": 40.07,
+      "occupancyPct": 0.03,
+      "waitingTime": 0.0
+    },
+    "re20007191": {
+      "speedKmh": 40.03,
+      "occupancyPct": 0.31,
+      "waitingTime": 0.0
+    },
+    "re20007192": {
+      "speedKmh": 43.7,
+      "occupancyPct": 0.03,
+      "waitingTime": 0.0
+    },
+    "re20007193": {
+      "speedKmh": 26.32,
+      "occupancyPct": 0.47,
+      "waitingTime": 0.0
+    },
+    "re20007194": {
+      "speedKmh": 43.7,
+      "occupancyPct": 0.03,
+      "waitingTime": 0.0
+    },
+    "re20007231": {
+      "speedKmh": 29.45,
+      "occupancyPct": 0.05,
+      "waitingTime": 0.0
+    },
+    "re20007233": {
+      "speedKmh": 27.58,
+      "occupancyPct": 0.05,
+      "waitingTime": 0.0
+    },
+    "re20007255": {
+      "speedKmh": 25.27,
+      "occupancyPct": 0.11,
+      "waitingTime": 0.0
+    },
+    "re20007258": {
+      "speedKmh": 26.75,
+      "occupancyPct": 0.17,
+      "waitingTime": 0.0
+    },
+    "re20007299": {
+      "speedKmh": 39.13,
+      "occupancyPct": 0.06,
+      "waitingTime": 0.0
+    },
+    "re20007300": {
+      "speedKmh": 35.1,
+      "occupancyPct": 0.42,
+      "waitingTime": 0.0
+    },
+    "re20007301": {
+      "speedKmh": 34.7,
+      "occupancyPct": 0.43,
+      "waitingTime": 0.0
+    },
+    "re20007302": {
+      "speedKmh": 34.6,
+      "occupancyPct": 0.35,
+      "waitingTime": 0.0
+    },
+    "re20007303": {
+      "speedKmh": 25.6,
+      "occupancyPct": 0.48,
+      "waitingTime": 0.0
+    },
+    "re20007913": {
+      "speedKmh": 44.5,
+      "occupancyPct": 0.35,
+      "waitingTime": 0.0
+    },
+    "re20007914": {
+      "speedKmh": 25.31,
+      "occupancyPct": 0.6,
+      "waitingTime": 2.6
+    },
+    "re20007933": {
+      "speedKmh": 34.7,
+      "occupancyPct": 0.18,
+      "waitingTime": 0.0
+    },
+    "re20007934": {
+      "speedKmh": 35.6,
+      "occupancyPct": 0.07,
+      "waitingTime": 0.0
+    },
+    "re20007935": {
+      "speedKmh": 35.5,
+      "occupancyPct": 0.07,
+      "waitingTime": 0.0
+    },
+    "re20007936": {
+      "speedKmh": 35.6,
+      "occupancyPct": 0.07,
+      "waitingTime": 0.0
+    },
+    "re20008076": {
+      "speedKmh": 40.21,
+      "occupancyPct": 0.02,
+      "waitingTime": 0.0
+    },
+    "re20008820": {
+      "speedKmh": 36.14,
+      "occupancyPct": 0.07,
+      "waitingTime": 0.0
+    },
+    "re20008821": {
+      "speedKmh": 43.2,
+      "occupancyPct": 0.02,
+      "waitingTime": 0.0
+    },
+    "re20008822": {
+      "speedKmh": 30.38,
+      "occupancyPct": 0.03,
+      "waitingTime": 0.0
+    },
+    "re20008823": {
+      "speedKmh": 37.51,
+      "occupancyPct": 0.03,
+      "waitingTime": 0.0
+    },
+    "re20008824": {
+      "speedKmh": 41.94,
+      "occupancyPct": 0.03,
+      "waitingTime": 0.0
+    },
+    "re20009025": {
+      "speedKmh": 22.21,
+      "occupancyPct": 0.12,
+      "waitingTime": 0.0
+    },
+    "re20009230": {
+      "speedKmh": 32.72,
+      "occupancyPct": 0.07,
+      "waitingTime": 0.0
+    },
+    "re20009233": {
+      "speedKmh": 42.59,
+      "occupancyPct": 0.15,
+      "waitingTime": 0.0
+    },
+    "re20009234": {
+      "speedKmh": 45.32,
+      "occupancyPct": 0.13,
+      "waitingTime": 0.0
+    },
+    "re20009235": {
+      "speedKmh": 42.88,
+      "occupancyPct": 0.08,
+      "waitingTime": 0.0
+    },
+    "re20009236": {
+      "speedKmh": 26.89,
+      "occupancyPct": 0.1,
+      "waitingTime": 0.0
+    },
+    "re20009238": {
+      "speedKmh": 38.56,
+      "occupancyPct": 0.02,
+      "waitingTime": 0.0
+    },
+    "re20009239": {
+      "speedKmh": 42.84,
+      "occupancyPct": 0.02,
+      "waitingTime": 0.0
+    },
+    "re20009346": {
+      "speedKmh": 27.22,
+      "occupancyPct": 0.07,
+      "waitingTime": 0.0
+    },
+    "re20009350": {
+      "speedKmh": 22.57,
+      "occupancyPct": 0.08,
+      "waitingTime": 0.0
+    },
+    "re20009378": {
+      "speedKmh": 37.69,
+      "occupancyPct": 0.13,
+      "waitingTime": 0.0
+    },
+    "re20009380": {
+      "speedKmh": 37.58,
+      "occupancyPct": 0.12,
+      "waitingTime": 0.0
+    },
+    "re20009382": {
+      "speedKmh": 35.28,
+      "occupancyPct": 0.13,
+      "waitingTime": 0.0
+    },
+    "re20009384": {
+      "speedKmh": 38.38,
+      "occupancyPct": 0.1,
+      "waitingTime": 0.0
+    },
+    "re20009386": {
+      "speedKmh": 38.45,
+      "occupancyPct": 0.1,
+      "waitingTime": 0.0
+    },
+    "re20009388": {
+      "speedKmh": 37.04,
+      "occupancyPct": 0.06,
+      "waitingTime": 0.0
+    },
+    "re20009391": {
+      "speedKmh": 27.83,
+      "occupancyPct": 0.49,
+      "waitingTime": 0.0
+    },
+    "re20009393": {
+      "speedKmh": 39.78,
+      "occupancyPct": 0.35,
+      "waitingTime": 0.0
+    },
+    "re20009395": {
+      "speedKmh": 37.4,
+      "occupancyPct": 0.37,
+      "waitingTime": 0.0
+    },
+    "re20009609": {
+      "speedKmh": 44.42,
+      "occupancyPct": 0.93,
+      "waitingTime": 0.0
+    },
+    "re20009610": {
+      "speedKmh": 46.55,
+      "occupancyPct": 0.86,
+      "waitingTime": 0.0
+    },
+    "re20009611": {
+      "speedKmh": 46.08,
+      "occupancyPct": 0.8,
+      "waitingTime": 0.0
+    },
+    "re20009612": {
+      "speedKmh": 34.74,
+      "occupancyPct": 1.05,
+      "waitingTime": 0.0
+    },
+    "re20009613": {
+      "speedKmh": 45.47,
+      "occupancyPct": 0.23,
+      "waitingTime": 0.0
+    },
+    "re20009835": {
+      "speedKmh": 40.0,
+      "occupancyPct": 0.25,
+      "waitingTime": 0.0
+    },
+    "re20009836": {
+      "speedKmh": 42.8,
+      "occupancyPct": 0.15,
+      "waitingTime": 0.0
+    },
+    "re20009837": {
+      "speedKmh": 9.65,
+      "occupancyPct": 0.75,
+      "waitingTime": 7.2
+    },
+    "re20010091": {
+      "speedKmh": 12.67,
+      "occupancyPct": 0.89,
+      "waitingTime": 0.0
+    },
+    "re20010092": {
+      "speedKmh": 37.8,
+      "occupancyPct": 0.68,
+      "waitingTime": 0.0
+    },
+    "re20010093": {
+      "speedKmh": 21.24,
+      "occupancyPct": 0.9,
+      "waitingTime": 73.4
+    },
+    "re20010094": {
+      "speedKmh": 35.14,
+      "occupancyPct": 0.87,
+      "waitingTime": 0.0
+    },
+    "re20010095": {
+      "speedKmh": 45.9,
+      "occupancyPct": 0.59,
+      "waitingTime": 0.0
+    },
+    "re20010096": {
+      "speedKmh": 48.2,
+      "occupancyPct": 0.51,
+      "waitingTime": 0.0
+    },
+    "re20010529": {
+      "speedKmh": 36.04,
+      "occupancyPct": 0.06,
+      "waitingTime": 0.0
+    },
+    "re20010776": {
+      "speedKmh": 23.83,
+      "occupancyPct": 0.3,
+      "waitingTime": 0.0
+    },
+    "re20010780": {
+      "speedKmh": 30.46,
+      "occupancyPct": 0.03,
+      "waitingTime": 0.0
+    },
+    "re20010781": {
+      "speedKmh": 31.36,
+      "occupancyPct": 0.03,
+      "waitingTime": 0.0
+    },
+    "re20010782": {
+      "speedKmh": 27.43,
+      "occupancyPct": 0.03,
+      "waitingTime": 0.0
+    },
+    "re20010786": {
+      "speedKmh": 31.43,
+      "occupancyPct": 0.1,
+      "waitingTime": 0.0
+    },
+    "re20010787": {
+      "speedKmh": 27.54,
+      "occupancyPct": 0.07,
+      "waitingTime": 0.0
+    },
+    "re20010789": {
+      "speedKmh": 20.12,
+      "occupancyPct": 0.1,
+      "waitingTime": 0.0
+    },
+    "re20010791": {
+      "speedKmh": 28.22,
+      "occupancyPct": 0.07,
+      "waitingTime": 0.0
+    },
+    "re20010793": {
+      "speedKmh": 28.84,
+      "occupancyPct": 0.07,
+      "waitingTime": 0.0
+    },
+    "re20010795": {
+      "speedKmh": 28.33,
+      "occupancyPct": 0.07,
+      "waitingTime": 0.0
+    },
+    "re20010797": {
+      "speedKmh": 27.0,
+      "occupancyPct": 0.07,
+      "waitingTime": 0.0
+    },
+    "re20010799": {
+      "speedKmh": 17.46,
+      "occupancyPct": 0.11,
+      "waitingTime": 0.0
+    },
+    "re20010802": {
+      "speedKmh": 21.96,
+      "occupancyPct": 0.33,
+      "waitingTime": 0.0
+    },
+    "re20010807": {
+      "speedKmh": 23.83,
+      "occupancyPct": 0.3,
+      "waitingTime": 0.0
+    },
+    "re20011188": {
+      "speedKmh": 1.22,
+      "occupancyPct": 14.73,
+      "waitingTime": 141.0
+    },
+    "re20011291": {
+      "speedKmh": 41.11,
+      "occupancyPct": 0.13,
+      "waitingTime": 0.0
+    },
+    "re20012401": {
+      "speedKmh": 39.1,
+      "occupancyPct": 0.19,
+      "waitingTime": 0.0
+    },
+    "re20012402": {
+      "speedKmh": 49.03,
+      "occupancyPct": 0.15,
+      "waitingTime": 0.0
+    },
+    "re20012403": {
+      "speedKmh": 51.84,
+      "occupancyPct": 0.14,
+      "waitingTime": 0.0
+    },
+    "re20012404": {
+      "speedKmh": 52.13,
+      "occupancyPct": 0.14,
+      "waitingTime": 0.0
+    },
+    "re20012405": {
+      "speedKmh": 54.43,
+      "occupancyPct": 0.12,
+      "waitingTime": 0.0
+    },
+    "re20012406": {
+      "speedKmh": 52.92,
+      "occupancyPct": 0.12,
+      "waitingTime": 0.0
+    },
+    "re20012407": {
+      "speedKmh": 24.59,
+      "occupancyPct": 1.93,
+      "waitingTime": 0.0
+    },
+    "re20012408": {
+      "speedKmh": 42.98,
+      "occupancyPct": 1.7,
+      "waitingTime": 0.0
+    },
+    "re20012409": {
+      "speedKmh": 45.25,
+      "occupancyPct": 1.59,
+      "waitingTime": 0.0
+    },
+    "re20012410": {
+      "speedKmh": 29.74,
+      "occupancyPct": 2.34,
+      "waitingTime": 0.0
+    },
+    "re20012411": {
+      "speedKmh": 43.2,
+      "occupancyPct": 0.01,
+      "waitingTime": 0.0
+    },
+    "re20012412": {
+      "speedKmh": 43.2,
+      "occupancyPct": 0.01,
+      "waitingTime": 0.0
+    },
+    "re20012471": {
+      "speedKmh": 43.16,
+      "occupancyPct": 0.02,
+      "waitingTime": 0.0
+    },
+    "re20012472": {
+      "speedKmh": 40.1,
+      "occupancyPct": 0.02,
+      "waitingTime": 0.0
+    },
+    "re20012473": {
+      "speedKmh": 21.46,
+      "occupancyPct": 0.05,
+      "waitingTime": 0.0
+    },
+    "re20012474": {
+      "speedKmh": 52.02,
+      "occupancyPct": 0.02,
+      "waitingTime": 0.0
+    },
+    "re20012573": {
+      "speedKmh": 18.54,
+      "occupancyPct": 0.3,
+      "waitingTime": 73.2
+    },
+    "re20012670": {
+      "speedKmh": 32.33,
+      "occupancyPct": 0.4,
+      "waitingTime": 0.0
+    },
+    "re20012672": {
+      "speedKmh": 30.56,
+      "occupancyPct": 0.51,
+      "waitingTime": 0.0
+    },
+    "re20012674": {
+      "speedKmh": 33.95,
+      "occupancyPct": 0.6,
+      "waitingTime": 0.0
+    },
+    "re20012683": {
+      "speedKmh": 53.5,
+      "occupancyPct": 0.03,
+      "waitingTime": 0.0
+    },
+    "re20012685": {
+      "speedKmh": 54.79,
+      "occupancyPct": 0.02,
+      "waitingTime": 0.0
+    },
+    "re20012687": {
+      "speedKmh": 57.78,
+      "occupancyPct": 0.02,
+      "waitingTime": 0.0
+    },
+    "re20012776": {
+      "speedKmh": 26.21,
+      "occupancyPct": 0.04,
+      "waitingTime": 0.0
+    },
+    "re20012799": {
+      "speedKmh": 38.74,
+      "occupancyPct": 0.02,
+      "waitingTime": 0.0
+    },
+    "re20012801": {
+      "speedKmh": 50.83,
+      "occupancyPct": 0.02,
+      "waitingTime": 0.0
+    },
+    "re20012908": {
+      "speedKmh": 19.01,
+      "occupancyPct": 1.83,
+      "waitingTime": 0.0
+    },
+    "re20013682": {
+      "speedKmh": 28.55,
+      "occupancyPct": 0.13,
+      "waitingTime": 0.0
+    },
+    "re20013684": {
+      "speedKmh": 21.96,
+      "occupancyPct": 0.17,
+      "waitingTime": 0.0
+    },
+    "re20013691": {
+      "speedKmh": 32.87,
+      "occupancyPct": 0.04,
+      "waitingTime": 0.0
+    },
+    "re20014007": {
+      "speedKmh": 23.76,
+      "occupancyPct": 0.11,
+      "waitingTime": 0.0
+    },
+    "re20014009": {
+      "speedKmh": 29.41,
+      "occupancyPct": 0.04,
+      "waitingTime": 0.0
+    },
+    "re20014105": {
+      "speedKmh": 33.55,
+      "occupancyPct": 0.21,
+      "waitingTime": 0.0
+    },
+    "re20014637": {
+      "speedKmh": 36.65,
+      "occupancyPct": 0.17,
+      "waitingTime": 0.0
+    },
+    "re20014846": {
+      "speedKmh": 23.98,
+      "occupancyPct": 0.59,
+      "waitingTime": 0.0
+    },
+    "re20014880": {
+      "speedKmh": 26.35,
+      "occupancyPct": 0.22,
+      "waitingTime": 0.0
+    },
+    "re20014881": {
+      "speedKmh": 22.61,
+      "occupancyPct": 0.04,
+      "waitingTime": 0.0
+    },
+    "re20014882": {
+      "speedKmh": 34.24,
+      "occupancyPct": 0.26,
+      "waitingTime": 0.0
+    },
+    "re20014883": {
+      "speedKmh": 37.8,
+      "occupancyPct": 0.13,
+      "waitingTime": 0.0
+    },
+    "re20014884": {
+      "speedKmh": 35.46,
+      "occupancyPct": 0.07,
+      "waitingTime": 0.0
+    },
+    "re20014893": {
+      "speedKmh": 40.5,
+      "occupancyPct": 0.48,
+      "waitingTime": 0.0
+    },
+    "re20014894": {
+      "speedKmh": 47.52,
+      "occupancyPct": 0.39,
+      "waitingTime": 0.0
+    },
+    "re20014895": {
+      "speedKmh": 32.15,
+      "occupancyPct": 1.1,
+      "waitingTime": 0.0
+    },
+    "re20014896": {
+      "speedKmh": 18.54,
+      "occupancyPct": 1.47,
+      "waitingTime": 3.8
+    },
+    "re20014897": {
+      "speedKmh": 41.87,
+      "occupancyPct": 0.24,
+      "waitingTime": 0.0
+    },
+    "re20014898": {
+      "speedKmh": 38.12,
+      "occupancyPct": 0.27,
+      "waitingTime": 0.0
+    },
+    "re20014899": {
+      "speedKmh": 21.96,
+      "occupancyPct": 0.24,
+      "waitingTime": 64.2
+    },
+    "re20014902": {
+      "speedKmh": 42.88,
+      "occupancyPct": 0.02,
+      "waitingTime": 0.0
+    },
+    "re20015323": {
+      "speedKmh": 3.64,
+      "occupancyPct": 13.09,
+      "waitingTime": 109.8
+    },
+    "re20015324": {
+      "speedKmh": 12.96,
+      "occupancyPct": 2.64,
+      "waitingTime": 918.4
+    },
+    "re20015397": {
+      "speedKmh": 11.84,
+      "occupancyPct": 0.49,
+      "waitingTime": 0.7
+    },
+    "re20015398": {
+      "speedKmh": 37.62,
+      "occupancyPct": 0.15,
+      "waitingTime": 0.0
+    },
+    "re20015399": {
+      "speedKmh": 56.3,
+      "occupancyPct": 0.05,
+      "waitingTime": 0.0
+    },
+    "re20015515": {
+      "speedKmh": 28.12,
+      "occupancyPct": 0.23,
+      "waitingTime": 0.0
+    },
+    "re20015521": {
+      "speedKmh": 18.9,
+      "occupancyPct": 0.1,
+      "waitingTime": 0.0
+    },
+    "re20015523": {
+      "speedKmh": 28.3,
+      "occupancyPct": 0.09,
+      "waitingTime": 0.0
+    },
+    "re20015524": {
+      "speedKmh": 21.02,
+      "occupancyPct": 0.48,
+      "waitingTime": 0.0
+    },
+    "re20015526": {
+      "speedKmh": 21.2,
+      "occupancyPct": 0.47,
+      "waitingTime": 0.0
+    },
+    "re20015528": {
+      "speedKmh": 25.99,
+      "occupancyPct": 0.07,
+      "waitingTime": 0.0
+    },
+    "re20015529": {
+      "speedKmh": 21.92,
+      "occupancyPct": 0.12,
+      "waitingTime": 0.0
+    },
+    "re20015530": {
+      "speedKmh": 19.51,
+      "occupancyPct": 0.08,
+      "waitingTime": 0.0
+    },
+    "re20016689": {
+      "speedKmh": 22.72,
+      "occupancyPct": 0.04,
+      "waitingTime": 0.0
+    },
+    "re20016697": {
+      "speedKmh": 37.62,
+      "occupancyPct": 0.06,
+      "waitingTime": 0.0
+    },
+    "re20016698": {
+      "speedKmh": 4.03,
+      "occupancyPct": 1.19,
+      "waitingTime": 23.4
+    },
+    "re20016727": {
+      "speedKmh": 32.29,
+      "occupancyPct": 0.0,
+      "waitingTime": 0.0
+    },
+    "re20016728": {
+      "speedKmh": 49.25,
+      "occupancyPct": 0.03,
+      "waitingTime": 0.0
+    },
+    "re20016815": {
+      "speedKmh": 51.84,
+      "occupancyPct": 0.02,
+      "waitingTime": 0.0
+    },
+    "re20016817": {
+      "speedKmh": 6.05,
+      "occupancyPct": 0.16,
+      "waitingTime": 8.4
+    },
+    "re20016884": {
+      "speedKmh": 29.27,
+      "occupancyPct": 0.07,
+      "waitingTime": 0.0
+    },
+    "re20016885": {
+      "speedKmh": 33.26,
+      "occupancyPct": 0.06,
+      "waitingTime": 0.0
+    },
+    "re20016886": {
+      "speedKmh": 27.9,
+      "occupancyPct": 0.07,
+      "waitingTime": 0.0
+    },
+    "re20016887": {
+      "speedKmh": 35.82,
+      "occupancyPct": 0.03,
+      "waitingTime": 0.0
+    },
+    "re20016888": {
+      "speedKmh": 34.85,
+      "occupancyPct": 0.03,
+      "waitingTime": 0.0
+    },
+    "re20016889": {
+      "speedKmh": 6.95,
+      "occupancyPct": 0.14,
+      "waitingTime": 12.0
+    },
+    "re20016915": {
+      "speedKmh": 23.11,
+      "occupancyPct": 0.18,
+      "waitingTime": 0.0
+    },
+    "re20016916": {
+      "speedKmh": 24.52,
+      "occupancyPct": 0.13,
+      "waitingTime": 0.0
+    },
+    "re20016917": {
+      "speedKmh": 29.34,
+      "occupancyPct": 0.07,
+      "waitingTime": 0.0
+    },
+    "re20017039": {
+      "speedKmh": 25.2,
+      "occupancyPct": 0.1,
+      "waitingTime": 0.0
+    },
+    "re20017041": {
+      "speedKmh": 27.97,
+      "occupancyPct": 0.29,
+      "waitingTime": 0.0
+    },
+    "re20017043": {
+      "speedKmh": 27.29,
+      "occupancyPct": 0.36,
+      "waitingTime": 0.0
+    },
+    "re20017045": {
+      "speedKmh": 27.68,
+      "occupancyPct": 0.36,
+      "waitingTime": 0.0
+    },
+    "re20017046": {
+      "speedKmh": 26.03,
+      "occupancyPct": 0.07,
+      "waitingTime": 0.0
+    },
+    "re20017047": {
+      "speedKmh": 18.97,
+      "occupancyPct": 0.14,
+      "waitingTime": 0.0
+    },
+    "re20017048": {
+      "speedKmh": 19.26,
+      "occupancyPct": 0.0,
+      "waitingTime": 0.0
+    },
+    "re20017053": {
+      "speedKmh": 24.66,
+      "occupancyPct": 0.11,
+      "waitingTime": 0.0
+    },
+    "re20017054": {
+      "speedKmh": 18.25,
+      "occupancyPct": 0.11,
+      "waitingTime": 0.0
+    },
+    "re20017055": {
+      "speedKmh": 25.06,
+      "occupancyPct": 0.08,
+      "waitingTime": 0.0
+    },
+    "re20017691": {
+      "speedKmh": 31.07,
+      "occupancyPct": 0.02,
+      "waitingTime": 0.0
+    },
+    "re20017694": {
+      "speedKmh": 28.33,
+      "occupancyPct": 0.07,
+      "waitingTime": 0.0
+    },
+    "re20017856": {
+      "speedKmh": 20.74,
+      "occupancyPct": 0.09,
+      "waitingTime": 0.0
+    },
+    "re20017906": {
+      "speedKmh": 29.74,
+      "occupancyPct": 0.26,
+      "waitingTime": 0.0
+    },
+    "re20017907": {
+      "speedKmh": 26.82,
+      "occupancyPct": 0.26,
+      "waitingTime": 0.0
+    },
+    "re20018201": {
+      "speedKmh": 45.0,
+      "occupancyPct": 0.09,
+      "waitingTime": 0.0
+    },
+    "re20018202": {
+      "speedKmh": 20.81,
+      "occupancyPct": 1.4,
+      "waitingTime": 0.0
+    },
+    "re20018273": {
+      "speedKmh": 37.37,
+      "occupancyPct": 0.09,
+      "waitingTime": 0.0
+    },
+    "re20018274": {
+      "speedKmh": 37.26,
+      "occupancyPct": 0.09,
+      "waitingTime": 0.0
+    },
+    "re20018275": {
+      "speedKmh": 34.09,
+      "occupancyPct": 0.09,
+      "waitingTime": 0.0
+    },
+    "re20018282": {
+      "speedKmh": 27.58,
+      "occupancyPct": 0.09,
+      "waitingTime": 0.0
+    },
+    "re20018294": {
+      "speedKmh": 50.94,
+      "occupancyPct": 0.03,
+      "waitingTime": 0.0
+    },
+    "re20018295": {
+      "speedKmh": 45.14,
+      "occupancyPct": 1.64,
+      "waitingTime": 0.0
+    },
+    "re20018296": {
+      "speedKmh": 30.31,
+      "occupancyPct": 2.28,
+      "waitingTime": 611.2
+    },
+    "re20018374": {
+      "speedKmh": 12.35,
+      "occupancyPct": 0.35,
+      "waitingTime": 0.0
+    },
+    "re20018376": {
+      "speedKmh": 18.22,
+      "occupancyPct": 0.18,
+      "waitingTime": 0.0
+    },
+    "re20018377": {
+      "speedKmh": 20.99,
+      "occupancyPct": 0.36,
+      "waitingTime": 0.0
+    },
+    "re20018378": {
+      "speedKmh": 23.4,
+      "occupancyPct": 0.38,
+      "waitingTime": 0.0
+    },
+    "re20018380": {
+      "speedKmh": 19.8,
+      "occupancyPct": 1.22,
+      "waitingTime": 0.0
+    },
+    "re20018381": {
+      "speedKmh": 22.36,
+      "occupancyPct": 0.12,
+      "waitingTime": 0.0
+    },
+    "re20018382": {
+      "speedKmh": 17.68,
+      "occupancyPct": 0.11,
+      "waitingTime": 0.0
+    },
+    "re20018425": {
+      "speedKmh": 33.48,
+      "occupancyPct": 0.15,
+      "waitingTime": 0.0
+    },
+    "re20018426": {
+      "speedKmh": 49.43,
+      "occupancyPct": 0.07,
+      "waitingTime": 0.0
+    },
+    "re20018474": {
+      "speedKmh": 2.74,
+      "occupancyPct": 3.7,
+      "waitingTime": 313.0
+    },
+    "re20018533": {
+      "speedKmh": 39.06,
+      "occupancyPct": 0.38,
+      "waitingTime": 0.0
+    },
+    "re20018534": {
+      "speedKmh": 18.25,
+      "occupancyPct": 0.89,
+      "waitingTime": 99.8
+    },
+    "re20018535": {
+      "speedKmh": 39.31,
+      "occupancyPct": 0.05,
+      "waitingTime": 0.0
+    },
+    "re20018536": {
+      "speedKmh": 30.28,
+      "occupancyPct": 0.29,
+      "waitingTime": 0.0
+    },
+    "re20018537": {
+      "speedKmh": 38.2,
+      "occupancyPct": 0.53,
+      "waitingTime": 0.0
+    },
+    "re20018564": {
+      "speedKmh": 10.69,
+      "occupancyPct": 0.65,
+      "waitingTime": 0.0
+    },
+    "re20018568": {
+      "speedKmh": 35.14,
+      "occupancyPct": 0.25,
+      "waitingTime": 10.8
+    },
+    "re20018569": {
+      "speedKmh": 29.41,
+      "occupancyPct": 0.28,
+      "waitingTime": 0.0
+    },
+    "re20018570": {
+      "speedKmh": 0.4,
+      "occupancyPct": 11.89,
+      "waitingTime": 192.2
+    },
+    "re20018571": {
+      "speedKmh": 10.55,
+      "occupancyPct": 1.0,
+      "waitingTime": 0.0
+    },
+    "re20018572": {
+      "speedKmh": 20.23,
+      "occupancyPct": 0.17,
+      "waitingTime": 84.2
+    },
+    "re20018631": {
+      "speedKmh": 36.07,
+      "occupancyPct": 0.11,
+      "waitingTime": 0.0
+    },
+    "re20018632": {
+      "speedKmh": 3.78,
+      "occupancyPct": 8.35,
+      "waitingTime": 3148.8
+    },
+    "re20018633": {
+      "speedKmh": 45.29,
+      "occupancyPct": 0.2,
+      "waitingTime": 0.0
+    },
+    "re20018634": {
+      "speedKmh": 45.72,
+      "occupancyPct": 0.09,
+      "waitingTime": 0.0
+    },
+    "re20018635": {
+      "speedKmh": 44.89,
+      "occupancyPct": 0.2,
+      "waitingTime": 0.0
+    },
+    "re20018636": {
+      "speedKmh": 45.61,
+      "occupancyPct": 0.09,
+      "waitingTime": 0.0
+    },
+    "re20018637": {
+      "speedKmh": 45.18,
+      "occupancyPct": 0.2,
+      "waitingTime": 0.0
+    },
+    "re20018638": {
+      "speedKmh": 37.73,
+      "occupancyPct": 0.16,
+      "waitingTime": 0.0
+    },
+    "re20018639": {
+      "speedKmh": 7.56,
+      "occupancyPct": 1.15,
+      "waitingTime": 203.4
+    },
+    "re20019594": {
+      "speedKmh": 18.76,
+      "occupancyPct": 0.41,
+      "waitingTime": 0.0
+    },
+    "re20019667": {
+      "speedKmh": 50.0,
+      "occupancyPct": 0.03,
+      "waitingTime": 0.0
+    },
+    "re20019774": {
+      "speedKmh": 40.9,
+      "occupancyPct": 0.37,
+      "waitingTime": 0.0
+    },
+    "re20019856": {
+      "speedKmh": 12.56,
+      "occupancyPct": 0.24,
+      "waitingTime": 62.2
+    },
+    "re20019857": {
+      "speedKmh": 42.55,
+      "occupancyPct": 0.15,
+      "waitingTime": 0.0
+    },
+    "re20019866": {
+      "speedKmh": 28.87,
+      "occupancyPct": 0.04,
+      "waitingTime": 0.0
+    },
+    "re20020429": {
+      "speedKmh": 41.4,
+      "occupancyPct": 0.37,
+      "waitingTime": 0.0
+    },
+    "re20020600": {
+      "speedKmh": 12.46,
+      "occupancyPct": 0.37,
+      "waitingTime": 176.8
+    },
+    "re20020601": {
+      "speedKmh": 22.07,
+      "occupancyPct": 0.89,
+      "waitingTime": 126.6
+    },
+    "re20020623": {
+      "speedKmh": 40.46,
+      "occupancyPct": 0.3,
+      "waitingTime": 0.0
+    },
+    "re20020682": {
+      "speedKmh": 24.55,
+      "occupancyPct": 0.08,
+      "waitingTime": 0.0
+    },
+    "re20020700": {
+      "speedKmh": 32.72,
+      "occupancyPct": 0.08,
+      "waitingTime": 0.0
+    },
+    "re20020701": {
+      "speedKmh": 25.38,
+      "occupancyPct": 0.26,
+      "waitingTime": 0.0
+    },
+    "re20020718": {
+      "speedKmh": 17.57,
+      "occupancyPct": 0.23,
+      "waitingTime": 0.0
+    },
+    "re20020720": {
+      "speedKmh": 38.23,
+      "occupancyPct": 0.03,
+      "waitingTime": 0.0
+    },
+    "re20020721": {
+      "speedKmh": 38.3,
+      "occupancyPct": 0.23,
+      "waitingTime": 0.0
+    },
+    "re20020771": {
+      "speedKmh": 23.69,
+      "occupancyPct": 0.06,
+      "waitingTime": 12.2
+    },
+    "re20020806": {
+      "speedKmh": 46.76,
+      "occupancyPct": 0.49,
+      "waitingTime": 0.0
+    },
+    "re20020807": {
+      "speedKmh": 12.42,
+      "occupancyPct": 1.91,
+      "waitingTime": 180.0
+    },
+    "re20020817": {
+      "speedKmh": 36.43,
+      "occupancyPct": 0.56,
+      "waitingTime": 0.0
+    },
+    "re20020818": {
+      "speedKmh": 33.7,
+      "occupancyPct": 0.63,
+      "waitingTime": 0.0
+    },
+    "re20020819": {
+      "speedKmh": 10.62,
+      "occupancyPct": 0.9,
+      "waitingTime": 0.0
+    },
+    "re20020820": {
+      "speedKmh": 17.86,
+      "occupancyPct": 4.28,
+      "waitingTime": 434.4
+    },
+    "re20020821": {
+      "speedKmh": 23.44,
+      "occupancyPct": 1.55,
+      "waitingTime": 561.6
+    },
+    "re20020834": {
+      "speedKmh": 1.44,
+      "occupancyPct": 16.43,
+      "waitingTime": 344.4
+    },
+    "re20020836": {
+      "speedKmh": 2.92,
+      "occupancyPct": 5.88,
+      "waitingTime": 72.8
+    },
+    "re20020837": {
+      "speedKmh": 45.47,
+      "occupancyPct": 0.34,
+      "waitingTime": 0.0
+    },
+    "re20020844": {
+      "speedKmh": 30.78,
+      "occupancyPct": 0.15,
+      "waitingTime": 0.0
+    },
+    "re20020854": {
+      "speedKmh": 30.2,
+      "occupancyPct": 0.97,
+      "waitingTime": 0.0
+    },
+    "re20020855": {
+      "speedKmh": 44.53,
+      "occupancyPct": 0.34,
+      "waitingTime": 0.0
+    },
+    "re20020944": {
+      "speedKmh": 6.19,
+      "occupancyPct": 1.03,
+      "waitingTime": 149.6
+    },
+    "re20020945": {
+      "speedKmh": 3.82,
+      "occupancyPct": 13.4,
+      "waitingTime": 2527.4
+    },
+    "re20020946": {
+      "speedKmh": 56.95,
+      "occupancyPct": 0.02,
+      "waitingTime": 0.0
+    },
+    "re20020947": {
+      "speedKmh": 40.93,
+      "occupancyPct": 0.04,
+      "waitingTime": 0.0
+    },
+    "re20020948": {
+      "speedKmh": 53.32,
+      "occupancyPct": 0.02,
+      "waitingTime": 0.0
+    },
+    "re20020951": {
+      "speedKmh": 33.3,
+      "occupancyPct": 0.89,
+      "waitingTime": 0.0
+    },
+    "re20022604": {
+      "speedKmh": 14.11,
+      "occupancyPct": 0.05,
+      "waitingTime": 0.0
+    },
+    "re20022628": {
+      "speedKmh": 45.36,
+      "occupancyPct": 0.25,
+      "waitingTime": 0.0
+    },
+    "re20022629": {
+      "speedKmh": 1.22,
+      "occupancyPct": 4.06,
+      "waitingTime": 263.8
+    },
+    "re20022936": {
+      "speedKmh": 24.91,
+      "occupancyPct": 0.18,
+      "waitingTime": 0.0
+    },
+    "re20022937": {
+      "speedKmh": 33.91,
+      "occupancyPct": 0.08,
+      "waitingTime": 0.0
+    },
+    "re20023364": {
+      "speedKmh": 33.3,
+      "occupancyPct": 0.08,
+      "waitingTime": 0.0
+    },
+    "re20023394": {
+      "speedKmh": 27.47,
+      "occupancyPct": 0.16,
+      "waitingTime": 0.0
+    },
+    "re20023395": {
+      "speedKmh": 29.45,
+      "occupancyPct": 0.12,
+      "waitingTime": 0.0
+    },
+    "re20023396": {
+      "speedKmh": 25.31,
+      "occupancyPct": 0.18,
+      "waitingTime": 0.0
+    },
+    "re20023397": {
+      "speedKmh": 24.26,
+      "occupancyPct": 0.22,
+      "waitingTime": 0.0
+    },
+    "re20023479": {
+      "speedKmh": 29.3,
+      "occupancyPct": 0.09,
+      "waitingTime": 0.0
+    },
+    "re20023481": {
+      "speedKmh": 27.68,
+      "occupancyPct": 0.14,
+      "waitingTime": 0.0
+    },
+    "re20023482": {
+      "speedKmh": 26.78,
+      "occupancyPct": 0.05,
+      "waitingTime": 0.0
+    },
+    "re20023491": {
+      "speedKmh": 29.45,
+      "occupancyPct": 0.2,
+      "waitingTime": 0.0
+    },
+    "re20023492": {
+      "speedKmh": 23.29,
+      "occupancyPct": 0.73,
+      "waitingTime": 0.0
+    },
+    "re20023595": {
+      "speedKmh": 4.14,
+      "occupancyPct": 4.74,
+      "waitingTime": 36.2
+    },
+    "re20023614": {
+      "speedKmh": 31.36,
+      "occupancyPct": 0.03,
+      "waitingTime": 0.0
+    },
+    "re20023617": {
+      "speedKmh": 34.49,
+      "occupancyPct": 2.89,
+      "waitingTime": 0.0
+    },
+    "re20023618": {
+      "speedKmh": 38.05,
+      "occupancyPct": 2.66,
+      "waitingTime": 0.0
+    },
+    "re20023619": {
+      "speedKmh": 38.05,
+      "occupancyPct": 2.63,
+      "waitingTime": 0.0
+    },
+    "re20023620": {
+      "speedKmh": 38.2,
+      "occupancyPct": 2.56,
+      "waitingTime": 0.0
+    },
+    "re20023621": {
+      "speedKmh": 37.08,
+      "occupancyPct": 2.63,
+      "waitingTime": 0.0
+    },
+    "re20023622": {
+      "speedKmh": 27.61,
+      "occupancyPct": 3.37,
+      "waitingTime": 0.0
+    },
+    "re20023645": {
+      "speedKmh": 7.27,
+      "occupancyPct": 1.32,
+      "waitingTime": 5.4
+    },
+    "re20023690": {
+      "speedKmh": 11.02,
+      "occupancyPct": 4.2,
+      "waitingTime": 8.5
+    },
+    "re20023691": {
+      "speedKmh": 35.89,
+      "occupancyPct": 0.02,
+      "waitingTime": 0.0
+    },
+    "re20023770": {
+      "speedKmh": 32.11,
+      "occupancyPct": 0.03,
+      "waitingTime": 0.0
+    },
+    "re20023893": {
+      "speedKmh": 27.83,
+      "occupancyPct": 0.09,
+      "waitingTime": 0.0
+    },
+    "re20023900": {
+      "speedKmh": 19.8,
+      "occupancyPct": 0.12,
+      "waitingTime": 0.0
+    },
+    "re20023901": {
+      "speedKmh": 22.9,
+      "occupancyPct": 0.05,
+      "waitingTime": 0.0
+    },
+    "re20023904": {
+      "speedKmh": 18.54,
+      "occupancyPct": 0.94,
+      "waitingTime": 0.0
+    },
+    "re20023905": {
+      "speedKmh": 30.64,
+      "occupancyPct": 0.19,
+      "waitingTime": 0.0
+    },
+    "re20023906": {
+      "speedKmh": 19.08,
+      "occupancyPct": 0.92,
+      "waitingTime": 0.0
+    },
+    "re20023907": {
+      "speedKmh": 30.74,
+      "occupancyPct": 0.19,
+      "waitingTime": 0.0
+    },
+    "re20023908": {
+      "speedKmh": 31.43,
+      "occupancyPct": 0.09,
+      "waitingTime": 0.0
+    },
+    "re20023910": {
+      "speedKmh": 20.92,
+      "occupancyPct": 0.13,
+      "waitingTime": 0.0
+    },
+    "re20025684": {
+      "speedKmh": 28.48,
+      "occupancyPct": 0.09,
+      "waitingTime": 0.0
+    },
+    "re20025782": {
+      "speedKmh": 43.16,
+      "occupancyPct": 1.86,
+      "waitingTime": 0.0
+    },
+    "re20025799": {
+      "speedKmh": 25.88,
+      "occupancyPct": 0.07,
+      "waitingTime": 0.0
+    },
+    "re20026600": {
+      "speedKmh": 37.94,
+      "occupancyPct": 0.03,
+      "waitingTime": 0.0
+    },
+    "re20026601": {
+      "speedKmh": 37.94,
+      "occupancyPct": 0.23,
+      "waitingTime": 0.0
+    },
+    "re20026602": {
+      "speedKmh": 13.07,
+      "occupancyPct": 0.12,
+      "waitingTime": 0.0
+    },
+    "re20026603": {
+      "speedKmh": 40.1,
+      "occupancyPct": 0.4,
+      "waitingTime": 0.0
+    },
+    "re20026604": {
+      "speedKmh": 13.9,
+      "occupancyPct": 0.82,
+      "waitingTime": 76.4
+    },
+    "re20026605": {
+      "speedKmh": 12.56,
+      "occupancyPct": 0.33,
+      "waitingTime": 0.0
+    },
+    "re20026606": {
+      "speedKmh": 46.94,
+      "occupancyPct": 0.12,
+      "waitingTime": 0.0
+    },
+    "re20026607": {
+      "speedKmh": 43.52,
+      "occupancyPct": 1.47,
+      "waitingTime": 0.0
+    },
+    "re20027238": {
+      "speedKmh": 31.64,
+      "occupancyPct": 0.03,
+      "waitingTime": 0.0
+    },
+    "re20027239": {
+      "speedKmh": 22.14,
+      "occupancyPct": 0.53,
+      "waitingTime": 0.0
+    },
+    "re20027240": {
+      "speedKmh": 31.64,
+      "occupancyPct": 0.03,
+      "waitingTime": 0.0
+    },
+    "re20027241": {
+      "speedKmh": 27.32,
+      "occupancyPct": 0.58,
+      "waitingTime": 0.0
+    },
+    "re20027242": {
+      "speedKmh": 30.6,
+      "occupancyPct": 0.38,
+      "waitingTime": 0.0
+    },
+    "re20027243": {
+      "speedKmh": 49.5,
+      "occupancyPct": 0.05,
+      "waitingTime": 0.0
+    },
+    "re20027334": {
+      "speedKmh": 15.05,
+      "occupancyPct": 0.46,
+      "waitingTime": 0.0
+    },
+    "re20027368": {
+      "speedKmh": 44.89,
+      "occupancyPct": 0.05,
+      "waitingTime": 0.0
+    },
+    "re20027369": {
+      "speedKmh": 24.19,
+      "occupancyPct": 4.62,
+      "waitingTime": 0.0
+    },
+    "re20027374": {
+      "speedKmh": 14.51,
+      "occupancyPct": 0.38,
+      "waitingTime": 0.0
+    },
+    "re20027397": {
+      "speedKmh": 44.86,
+      "occupancyPct": 0.2,
+      "waitingTime": 0.0
+    },
+    "re20027398": {
+      "speedKmh": 44.93,
+      "occupancyPct": 0.09,
+      "waitingTime": 0.0
+    },
+    "re20027762": {
+      "speedKmh": 45.18,
+      "occupancyPct": 1.25,
+      "waitingTime": 0.0
+    },
+    "re20027763": {
+      "speedKmh": 38.59,
+      "occupancyPct": 1.6,
+      "waitingTime": 0.0
+    },
+    "re20027764": {
+      "speedKmh": 47.99,
+      "occupancyPct": 1.18,
+      "waitingTime": 0.0
+    },
+    "re20027773": {
+      "speedKmh": 18.86,
+      "occupancyPct": 0.42,
+      "waitingTime": 187.2
+    },
+    "re20027774": {
+      "speedKmh": 0.9,
+      "occupancyPct": 26.9,
+      "waitingTime": 273.8
+    },
+    "re20027775": {
+      "speedKmh": 1.26,
+      "occupancyPct": 1.76,
+      "waitingTime": 141.2
+    },
+    "re20027776": {
+      "speedKmh": 38.74,
+      "occupancyPct": 0.33,
+      "waitingTime": 0.0
+    },
+    "re20027777": {
+      "speedKmh": 45.25,
+      "occupancyPct": 0.26,
+      "waitingTime": 0.0
+    },
+    "re20027778": {
+      "speedKmh": 44.82,
+      "occupancyPct": 0.26,
+      "waitingTime": 0.0
+    },
+    "re20027794": {
+      "speedKmh": 20.48,
+      "occupancyPct": 0.35,
+      "waitingTime": 0.0
+    },
+    "re20027798": {
+      "speedKmh": 21.56,
+      "occupancyPct": 0.18,
+      "waitingTime": 0.0
+    },
+    "re20027807": {
+      "speedKmh": 21.85,
+      "occupancyPct": 4.56,
+      "waitingTime": 0.0
+    },
+    "re20027808": {
+      "speedKmh": 29.09,
+      "occupancyPct": 0.15,
+      "waitingTime": 0.0
+    },
+    "re20027835": {
+      "speedKmh": 30.24,
+      "occupancyPct": 0.08,
+      "waitingTime": 0.0
+    },
+    "re20027863": {
+      "speedKmh": 11.16,
+      "occupancyPct": 2.58,
+      "waitingTime": 0.0
+    },
+    "re20027864": {
+      "speedKmh": 38.02,
+      "occupancyPct": 0.08,
+      "waitingTime": 0.0
+    },
+    "re20027866": {
+      "speedKmh": 17.32,
+      "occupancyPct": 0.2,
+      "waitingTime": 0.0
+    },
+    "re20027867": {
+      "speedKmh": 12.46,
+      "occupancyPct": 0.01,
+      "waitingTime": 0.0
+    },
+    "re20027868": {
+      "speedKmh": 7.34,
+      "occupancyPct": 0.4,
+      "waitingTime": 1.0
+    },
+    "re20027910": {
+      "speedKmh": 5.15,
+      "occupancyPct": 0.71,
+      "waitingTime": 4.4
+    },
+    "re20027911": {
+      "speedKmh": 34.74,
+      "occupancyPct": 0.18,
+      "waitingTime": 0.0
+    },
+    "re20027919": {
+      "speedKmh": 5.51,
+      "occupancyPct": 0.09,
+      "waitingTime": 30.2
+    },
+    "re20027920": {
+      "speedKmh": 17.78,
+      "occupancyPct": 1.12,
+      "waitingTime": 0.0
+    },
+    "re20027951": {
+      "speedKmh": 8.39,
+      "occupancyPct": 2.19,
+      "waitingTime": 176.2
+    },
+    "re20027952": {
+      "speedKmh": 46.3,
+      "occupancyPct": 0.05,
+      "waitingTime": 0.0
+    },
+    "re20028046": {
+      "speedKmh": 30.06,
+      "occupancyPct": 0.04,
+      "waitingTime": 0.0
+    },
+    "re20028048": {
+      "speedKmh": 29.7,
+      "occupancyPct": 0.05,
+      "waitingTime": 0.0
+    },
+    "re20028072": {
+      "speedKmh": 34.88,
+      "occupancyPct": 0.2,
+      "waitingTime": 0.0
+    },
+    "re20028073": {
+      "speedKmh": 38.7,
+      "occupancyPct": 0.16,
+      "waitingTime": 0.0
+    },
+    "re20028074": {
+      "speedKmh": 38.88,
+      "occupancyPct": 0.15,
+      "waitingTime": 0.0
+    },
+    "re20028075": {
+      "speedKmh": 34.56,
+      "occupancyPct": 0.17,
+      "waitingTime": 0.0
+    },
+    "re20028076": {
+      "speedKmh": 39.96,
+      "occupancyPct": 0.13,
+      "waitingTime": 0.0
+    },
+    "re20028077": {
+      "speedKmh": 39.96,
+      "occupancyPct": 0.12,
+      "waitingTime": 0.0
+    },
+    "re20028078": {
+      "speedKmh": 38.77,
+      "occupancyPct": 0.07,
+      "waitingTime": 0.0
+    },
+    "re20028079": {
+      "speedKmh": 30.78,
+      "occupancyPct": 0.09,
+      "waitingTime": 0.0
+    },
+    "re20028080": {
+      "speedKmh": 15.16,
+      "occupancyPct": 0.19,
+      "waitingTime": 0.0
+    },
+    "re20028184": {
+      "speedKmh": 30.02,
+      "occupancyPct": 0.06,
+      "waitingTime": 0.0
+    },
+    "re20028192": {
+      "speedKmh": 39.56,
+      "occupancyPct": 0.03,
+      "waitingTime": 0.0
+    },
+    "re20028193": {
+      "speedKmh": 52.27,
+      "occupancyPct": 0.03,
+      "waitingTime": 0.0
+    },
+    "re20028194": {
+      "speedKmh": 14.33,
+      "occupancyPct": 0.96,
+      "waitingTime": 0.0
+    },
+    "re20028195": {
+      "speedKmh": 18.54,
+      "occupancyPct": 0.98,
+      "waitingTime": 0.0
+    },
+    "re20028196": {
+      "speedKmh": 42.48,
+      "occupancyPct": 0.19,
+      "waitingTime": 0.0
+    },
+    "re20028197": {
+      "speedKmh": 38.52,
+      "occupancyPct": 0.21,
+      "waitingTime": 0.0
+    },
+    "re20028216": {
+      "speedKmh": 1.33,
+      "occupancyPct": 2.58,
+      "waitingTime": 63.4
+    },
+    "re20028217": {
+      "speedKmh": 28.26,
+      "occupancyPct": 0.22,
+      "waitingTime": 0.0
+    },
+    "re20028272": {
+      "speedKmh": 23.4,
+      "occupancyPct": 0.11,
+      "waitingTime": 0.0
+    },
+    "re20028276": {
+      "speedKmh": 19.51,
+      "occupancyPct": 0.27,
+      "waitingTime": 0.0
+    },
+    "re20028307": {
+      "speedKmh": 18.22,
+      "occupancyPct": 0.01,
+      "waitingTime": 0.0
+    },
+    "re20028324": {
+      "speedKmh": 28.3,
+      "occupancyPct": 0.6,
+      "waitingTime": 0.0
+    },
+    "re20028485": {
+      "speedKmh": 30.06,
+      "occupancyPct": 0.03,
+      "waitingTime": 0.0
+    },
+    "re20028488": {
+      "speedKmh": 44.39,
+      "occupancyPct": 0.63,
+      "waitingTime": 0.0
+    },
+    "re20028610": {
+      "speedKmh": 43.6,
+      "occupancyPct": 0.21,
+      "waitingTime": 0.0
+    },
+    "re20028611": {
+      "speedKmh": 44.42,
+      "occupancyPct": 0.14,
+      "waitingTime": 0.0
+    },
+    "re20028612": {
+      "speedKmh": 44.46,
+      "occupancyPct": 0.14,
+      "waitingTime": 0.0
+    },
+    "re20028613": {
+      "speedKmh": 43.06,
+      "occupancyPct": 0.21,
+      "waitingTime": 0.0
+    },
+    "re20028748": {
+      "speedKmh": 17.93,
+      "occupancyPct": 0.66,
+      "waitingTime": 0.0
+    },
+    "re20028779": {
+      "speedKmh": 1.15,
+      "occupancyPct": 20.09,
+      "waitingTime": 1084.6
+    },
+    "re20028780": {
+      "speedKmh": 33.12,
+      "occupancyPct": 0.24,
+      "waitingTime": 0.0
+    },
+    "re20028781": {
+      "speedKmh": 43.74,
+      "occupancyPct": 0.09,
+      "waitingTime": 0.0
+    },
+    "re20029111": {
+      "speedKmh": 30.85,
+      "occupancyPct": 0.18,
+      "waitingTime": 0.0
+    },
+    "re20029112": {
+      "speedKmh": 28.48,
+      "occupancyPct": 0.19,
+      "waitingTime": 0.0
+    },
+    "re20029113": {
+      "speedKmh": 23.0,
+      "occupancyPct": 0.12,
+      "waitingTime": 0.0
+    },
+    "re20029114": {
+      "speedKmh": 21.6,
+      "occupancyPct": 0.12,
+      "waitingTime": 0.0
+    },
+    "re20029115": {
+      "speedKmh": 28.12,
+      "occupancyPct": 0.09,
+      "waitingTime": 0.0
+    },
+    "re20029160": {
+      "speedKmh": 38.38,
+      "occupancyPct": 1.2,
+      "waitingTime": 0.0
+    },
+    "re20029271": {
+      "speedKmh": 35.96,
+      "occupancyPct": 0.09,
+      "waitingTime": 0.0
+    },
+    "re20029272": {
+      "speedKmh": 21.96,
+      "occupancyPct": 0.59,
+      "waitingTime": 0.0
+    },
+    "re20029273": {
+      "speedKmh": 4.25,
+      "occupancyPct": 3.31,
+      "waitingTime": 172.8
+    },
+    "re20029286": {
+      "speedKmh": 15.8,
+      "occupancyPct": 0.09,
+      "waitingTime": 0.0
+    },
+    "re20029415": {
+      "speedKmh": 40.46,
+      "occupancyPct": 0.18,
+      "waitingTime": 0.0
+    },
+    "re20029416": {
+      "speedKmh": 13.07,
+      "occupancyPct": 2.01,
+      "waitingTime": 15.0
+    },
+    "re20029431": {
+      "speedKmh": 48.24,
+      "occupancyPct": 0.46,
+      "waitingTime": 0.0
+    },
+    "re20029449": {
+      "speedKmh": 28.98,
+      "occupancyPct": 0.08,
+      "waitingTime": 0.0
+    },
+    "re20029452": {
+      "speedKmh": 13.68,
+      "occupancyPct": 0.52,
+      "waitingTime": 46.4
+    },
+    "re20029507": {
+      "speedKmh": 39.89,
+      "occupancyPct": 1.26,
+      "waitingTime": 0.0
+    },
+    "re20029516": {
+      "speedKmh": 29.05,
+      "occupancyPct": 0.04,
+      "waitingTime": 0.0
+    },
+    "re20029529": {
+      "speedKmh": 1.04,
+      "occupancyPct": 8.94,
+      "waitingTime": 1679.6
+    },
+    "re20029556": {
+      "speedKmh": 28.48,
+      "occupancyPct": 0.08,
+      "waitingTime": 0.0
+    },
+    "re20029648": {
+      "speedKmh": 45.29,
+      "occupancyPct": 0.59,
+      "waitingTime": 0.0
+    },
+    "re20029649": {
+      "speedKmh": 46.66,
+      "occupancyPct": 0.59,
+      "waitingTime": 0.0
+    },
+    "re20029650": {
+      "speedKmh": 45.32,
+      "occupancyPct": 0.6,
+      "waitingTime": 0.0
+    },
+    "re20029651": {
+      "speedKmh": 17.32,
+      "occupancyPct": 1.74,
+      "waitingTime": 416.6
+    },
+    "re20029905": {
+      "speedKmh": 36.65,
+      "occupancyPct": 0.09,
+      "waitingTime": 0.0
+    },
+    "re20029947": {
+      "speedKmh": 15.44,
+      "occupancyPct": 0.06,
+      "waitingTime": 0.0
+    },
+    "re20029966": {
+      "speedKmh": 18.18,
+      "occupancyPct": 0.37,
+      "waitingTime": 0.0
+    },
+    "re20030002": {
+      "speedKmh": 37.19,
+      "occupancyPct": 0.0,
+      "waitingTime": 0.0
+    },
+    "re20030027": {
+      "speedKmh": 15.19,
+      "occupancyPct": 0.07,
+      "waitingTime": 0.0
+    },
+    "re20030092": {
+      "speedKmh": 41.51,
+      "occupancyPct": 0.44,
+      "waitingTime": 0.0
+    },
+    "re20030093": {
+      "speedKmh": 43.96,
+      "occupancyPct": 0.42,
+      "waitingTime": 0.0
+    },
+    "re20030102": {
+      "speedKmh": 25.78,
+      "occupancyPct": 0.27,
+      "waitingTime": 0.0
+    },
+    "re20030134": {
+      "speedKmh": 28.8,
+      "occupancyPct": 0.09,
+      "waitingTime": 0.0
+    },
+    "re20030199": {
+      "speedKmh": 7.38,
+      "occupancyPct": 0.49,
+      "waitingTime": 0.0
+    },
+    "re20030200": {
+      "speedKmh": 2.77,
+      "occupancyPct": 0.9,
+      "waitingTime": 0.0
+    },
+    "re20030201": {
+      "speedKmh": 5.83,
+      "occupancyPct": 0.64,
+      "waitingTime": 0.0
+    },
+    "re20030203": {
+      "speedKmh": 26.64,
+      "occupancyPct": 0.62,
+      "waitingTime": 0.0
+    },
+    "re20030204": {
+      "speedKmh": 30.53,
+      "occupancyPct": 0.19,
+      "waitingTime": 0.0
+    },
+    "re20030205": {
+      "speedKmh": 37.76,
+      "occupancyPct": 0.8,
+      "waitingTime": 0.0
+    },
+    "re20030210": {
+      "speedKmh": 29.12,
+      "occupancyPct": 0.25,
+      "waitingTime": 0.0
+    },
+    "re20030304": {
+      "speedKmh": 26.06,
+      "occupancyPct": 0.09,
+      "waitingTime": 0.0
+    },
+    "re20030307": {
+      "speedKmh": 21.82,
+      "occupancyPct": 0.09,
+      "waitingTime": 0.0
+    },
+    "re20030309": {
+      "speedKmh": 22.32,
+      "occupancyPct": 0.2,
+      "waitingTime": 0.0
+    },
+    "re20030487": {
+      "speedKmh": 15.52,
+      "occupancyPct": 0.12,
+      "waitingTime": 0.0
+    },
+    "re20030557": {
+      "speedKmh": 46.19,
+      "occupancyPct": 1.22,
+      "waitingTime": 0.0
+    },
+    "re20030561": {
+      "speedKmh": 32.33,
+      "occupancyPct": 0.63,
+      "waitingTime": 0.0
+    },
+    "re20030756": {
+      "speedKmh": 27.11,
+      "occupancyPct": 0.5,
+      "waitingTime": 0.0
+    },
+    "re20030757": {
+      "speedKmh": 15.7,
+      "occupancyPct": 0.06,
+      "waitingTime": 0.0
+    },
+    "re20030773": {
+      "speedKmh": 15.26,
+      "occupancyPct": 1.43,
+      "waitingTime": 0.0
+    },
+    "re20030774": {
+      "speedKmh": 29.52,
+      "occupancyPct": 0.18,
+      "waitingTime": 0.0
+    },
+    "re20030852": {
+      "speedKmh": 9.18,
+      "occupancyPct": 1.45,
+      "waitingTime": 2.7
+    }
+  }
+}
