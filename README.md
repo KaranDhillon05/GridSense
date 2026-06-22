@@ -23,7 +23,7 @@
 
 <br/>
 
-![Operations Center — live map command view](gridsense/docs/command_center.png)
+![Operations Center — live map command view](gridsense/images/command_center.png)
 
 *The Operations Center — live map of Bengaluru with every active incident, deployed unit, and city health score*
 
@@ -81,7 +81,7 @@ Open GridSense and you land on the **Operations Center** — a live map of Benga
 
 <div align="center">
 
-![Operations Center — full city view with 1000 incidents](gridsense/docs/Screenshot_2026-06-23_at_11_09_08_PM.png)
+![Operations Center — full city view with 1000 incidents](gridsense/images/Screenshot_2026-06-23_at_11_09_08_PM.png)
 
 *1,000 active incidents across Bengaluru, ranked by severity. The ticker runs in real time — seeded from the real ASTraM corpus.*
 
@@ -113,7 +113,7 @@ For planned events — cricket matches, processions, construction, VIP movements
 
 <div align="center">
 
-![Plan an event — scenario selection with live map](gridsense/docs/Planning1.png)
+![Plan an event — scenario selection with live map](gridsense/images/Planning1.png)
 
 *Step 1: Pick a scenario preset — Cricket match at Chinnaswamy, Metro construction on ORR, waterlogging on Mysore Rd — and the map updates instantly.*
 
@@ -123,7 +123,7 @@ For planned events — cricket matches, processions, construction, VIP movements
 
 <div align="center">
 
-![Plan an event — impact forecast and diversion routes](gridsense/docs/Screenshot_2026-06-23_at_11_25_05_PM.png)
+![Plan an event — impact forecast and diversion routes](gridsense/images/Screenshot_2026-06-23_at_11_25_05_PM.png)
 
 *Step 4: Full impact forecast (47/100 Moderate), recommended strategy, real diversion routes drawn on live MapmyIndia roads, and step-by-step first actions.*
 
@@ -159,7 +159,7 @@ Recommended strategy: Full Diversion + Signal Override
 
 <div align="center">
 
-![Playbook — recommended strategy with first actions checklist](gridsense/docs/planning.png)
+![Playbook — recommended strategy with first actions checklist](gridsense/images/planning.png)
 
 *The full recommended playbook: why this strategy, historical justification, and concrete first actions — deploy 8 units, signpost corridors, activate dynamic signals, issue SMS advisories.*
 
@@ -195,7 +195,7 @@ Accept Plan A → diversions and field units deploy into the live ops store. The
 
 <div align="center">
 
-![Digital twin — dark Bengaluru map with live vehicle simulation](gridsense/docs/sim.png)
+![Digital twin — dark Bengaluru map with live vehicle simulation](gridsense/images/sim.png)
 
 *514 vehicles. 13 km/h mean speed. Real IDM physics. Click any road to inject an incident and watch the live line diverge from the baseline ghost — that gap is the delay your response prevented.*
 
@@ -221,7 +221,7 @@ What you can do:
 
 <div align="center">
 
-![Incident management — Kanban board](gridsense/docs/incident_management.png)
+![Incident management — Kanban board](gridsense/images/incident_management.png)
 
 *Every incident is a lifecycle object. The Kanban moves left to right: Detected → Verified → Responding → Managed → Clearing → Closed.*
 
@@ -231,7 +231,7 @@ What you can do:
 
 <div align="center">
 
-![Workflow engine — SLA timers and task tracking](gridsense/docs/workflow.png)
+![Workflow engine — SLA timers and task tracking](gridsense/images/workflow.png)
 
 *Every accepted plan generates tracked tasks with SLA timers. 7 breaches visible at a glance. Red = overdue.*
 
@@ -243,7 +243,7 @@ What you can do:
 
 <div align="center">
 
-![Resource intelligence — fleet map with AI dispatch recommendations](gridsense/docs/resourseintel.png)
+![Resource intelligence — fleet map with AI dispatch recommendations](gridsense/images/resourseintel.png)
 
 *36-unit fleet on a live map. The AI Resource Commander recommends which unit to dispatch to which unresourced incident, with live ETA from MapmyIndia routing.*
 
@@ -255,7 +255,7 @@ What you can do:
 
 <div align="center">
 
-![Operations intelligence — best-known response library](gridsense/docs/operations_intelligence.png)
+![Operations intelligence — best-known response library](gridsense/images/operations_intelligence.png)
 
 *Every accepted Wind Tunnel plan is stored here. Sports Event · CBD 2: 62% avg delay cut, 19 vehicle-hours saved. Over time this becomes an institutional memory that survives shift changes.*
 
