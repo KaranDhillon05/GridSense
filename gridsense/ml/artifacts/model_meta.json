@@ -1,0 +1,24 @@
+{
+  "mae_min": 488.7,
+  "median_ae_min": 35.9,
+  "r2_log": 0.314,
+  "n_train": 2777,
+  "features": {
+    "categorical": [
+      "event_cause",
+      "corridor",
+      "zone",
+      "veh_type",
+      "priority"
+    ],
+    "numeric": [
+      "requires_road_closure",
+      "is_planned",
+      "hour",
+      "dow",
+      "is_weekend",
+      "is_peak"
+    ]
+  },
+  "baseline_median_min": 52.71364313333334
+}

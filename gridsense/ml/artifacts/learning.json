@@ -1,0 +1,2985 @@
+{
+  "overall_before": {
+    "tier_accuracy": 0.761,
+    "bucket_accuracy": 0.49,
+    "within_50pct": 0.331,
+    "mae_min": 626.4,
+    "median_ae_min": 52.1,
+    "bias_min": -1.8
+  },
+  "overall_after": {
+    "tier_accuracy": 0.779,
+    "bucket_accuracy": 0.51,
+    "within_50pct": 0.338,
+    "mae_min": 619.1,
+    "median_ae_min": 52.8,
+    "bias_min": 2.0
+  },
+  "holdout_n": 834,
+  "holdout_from": "2024-03-05",
+  "improvement": {
+    "tier_acc_delta": 1.8,
+    "bucket_acc_delta": 2.0,
+    "within_50pct_delta": 0.7,
+    "mae_delta_min": 7.3
+  },
+  "by_cause": [
+    {
+      "event_cause": "vehicle_breakdown",
+      "n": 1835,
+      "median_actual_min": 41.1,
+      "median_pred_min": 37.0,
+      "median_pred_cal_min": 39.0,
+      "correction": 1.05,
+      "bias": "under",
+      "p10_actual_min": 10.0,
+      "p90_actual_min": 107.0,
+      "spread_ratio": 10.4,
+      "reliability": "medium"
+    },
+    {
+      "event_cause": "others",
+      "n": 313,
+      "median_actual_min": 108.5,
+      "median_pred_min": 167.3,
+      "median_pred_cal_min": 135.4,
+      "correction": 0.81,
+      "bias": "over",
+      "p10_actual_min": 16.0,
+      "p90_actual_min": 4192.0,
+      "spread_ratio": 267.8,
+      "reliability": "low"
+    },
+    {
+      "event_cause": "water_logging",
+      "n": 164,
+      "median_actual_min": 789.9,
+      "median_pred_min": 503.5,
+      "median_pred_cal_min": 1007.0,
+      "correction": 2.0,
+      "bias": "under",
+      "p10_actual_min": 34.0,
+      "p90_actual_min": 6586.0,
+      "spread_ratio": 190.9,
+      "reliability": "low"
+    },
+    {
+      "event_cause": "tree_fall",
+      "n": 142,
+      "median_actual_min": 217.8,
+      "median_pred_min": 314.5,
+      "median_pred_cal_min": 314.5,
+      "correction": 1.0,
+      "bias": "over",
+      "p10_actual_min": 30.0,
+      "p90_actual_min": 4353.0,
+      "spread_ratio": 146.1,
+      "reliability": "low"
+    },
+    {
+      "event_cause": "accident",
+      "n": 91,
+      "median_actual_min": 41.4,
+      "median_pred_min": 37.1,
+      "median_pred_cal_min": 38.6,
+      "correction": 1.04,
+      "bias": "under",
+      "p10_actual_min": 16.0,
+      "p90_actual_min": 85.0,
+      "spread_ratio": 5.2,
+      "reliability": "high"
+    },
+    {
+      "event_cause": "construction",
+      "n": 78,
+      "median_actual_min": 427.7,
+      "median_pred_min": 653.2,
+      "median_pred_cal_min": 675.7,
+      "correction": 1.03,
+      "bias": "over",
+      "p10_actual_min": 26.0,
+      "p90_actual_min": 6559.0,
+      "spread_ratio": 248.6,
+      "reliability": "low"
+    },
+    {
+      "event_cause": "pot_holes",
+      "n": 70,
+      "median_actual_min": 1489.7,
+      "median_pred_min": 825.0,
+      "median_pred_cal_min": 1110.4,
+      "correction": 1.35,
+      "bias": "under",
+      "p10_actual_min": 14.0,
+      "p90_actual_min": 6185.0,
+      "spread_ratio": 436.3,
+      "reliability": "low"
+    },
+    {
+      "event_cause": "road_conditions",
+      "n": 47,
+      "median_actual_min": 774.0,
+      "median_pred_min": 511.2,
+      "median_pred_cal_min": 661.5,
+      "correction": 1.29,
+      "bias": "under",
+      "p10_actual_min": 29.0,
+      "p90_actual_min": 7216.0,
+      "spread_ratio": 248.0,
+      "reliability": "low"
+    },
+    {
+      "event_cause": "congestion",
+      "n": 22,
+      "median_actual_min": 71.5,
+      "median_pred_min": 42.3,
+      "median_pred_cal_min": 42.3,
+      "correction": 1.0,
+      "bias": "under",
+      "p10_actual_min": 9.0,
+      "p90_actual_min": 135.0,
+      "spread_ratio": 15.1,
+      "reliability": "medium"
+    }
+  ],
+  "by_corridor": [
+    {
+      "corridor": "Non-corridor",
+      "n": 1032,
+      "median_actual_min": 57.6,
+      "median_pred_min": 46.7,
+      "median_pred_cal_min": 50.0,
+      "correction": 1.07,
+      "bias": "under"
+    },
+    {
+      "corridor": "Mysore Road",
+      "n": 316,
+      "median_actual_min": 44.3,
+      "median_pred_min": 37.9,
+      "median_pred_cal_min": 41.1,
+      "correction": 1.08,
+      "bias": "under"
+    },
+    {
+      "corridor": "Tumkur Road",
+      "n": 219,
+      "median_actual_min": 37.8,
+      "median_pred_min": 34.4,
+      "median_pred_cal_min": 33.8,
+      "correction": 0.98,
+      "bias": "under"
+    },
+    {
+      "corridor": "Bellary Road 1",
+      "n": 218,
+      "median_actual_min": 50.4,
+      "median_pred_min": 44.7,
+      "median_pred_cal_min": 44.8,
+      "correction": 1.0,
+      "bias": "under"
+    },
+    {
+      "corridor": "Bellary Road 2",
+      "n": 129,
+      "median_actual_min": 59.4,
+      "median_pred_min": 46.2,
+      "median_pred_cal_min": 50.1,
+      "correction": 1.08,
+      "bias": "under"
+    },
+    {
+      "corridor": "Magadi Road",
+      "n": 103,
+      "median_actual_min": 60.1,
+      "median_pred_min": 42.7,
+      "median_pred_cal_min": 46.8,
+      "correction": 1.09,
+      "bias": "under"
+    },
+    {
+      "corridor": "Hosur Road",
+      "n": 99,
+      "median_actual_min": 59.6,
+      "median_pred_min": 43.4,
+      "median_pred_cal_min": 51.4,
+      "correction": 1.18,
+      "bias": "under"
+    },
+    {
+      "corridor": "ORR East 1",
+      "n": 85,
+      "median_actual_min": 50.0,
+      "median_pred_min": 42.4,
+      "median_pred_cal_min": 43.2,
+      "correction": 1.02,
+      "bias": "under"
+    },
+    {
+      "corridor": "ORR North 1",
+      "n": 77,
+      "median_actual_min": 52.4,
+      "median_pred_min": 40.7,
+      "median_pred_cal_min": 35.7,
+      "correction": 0.88,
+      "bias": "under"
+    },
+    {
+      "corridor": "ORR North 2",
+      "n": 71,
+      "median_actual_min": 50.8,
+      "median_pred_min": 37.5,
+      "median_pred_cal_min": 37.1,
+      "correction": 0.99,
+      "bias": "under"
+    },
+    {
+      "corridor": "ORR West 1",
+      "n": 67,
+      "median_actual_min": 62.2,
+      "median_pred_min": 50.6,
+      "median_pred_cal_min": 56.1,
+      "correction": 1.11,
+      "bias": "under"
+    },
+    {
+      "corridor": "Old Madras Road",
+      "n": 67,
+      "median_actual_min": 41.5,
+      "median_pred_min": 31.9,
+      "median_pred_cal_min": 35.1,
+      "correction": 1.1,
+      "bias": "under"
+    },
+    {
+      "corridor": "West of Chord Road",
+      "n": 50,
+      "median_actual_min": 42.7,
+      "median_pred_min": 39.0,
+      "median_pred_cal_min": 41.4,
+      "correction": 1.06,
+      "bias": "under"
+    },
+    {
+      "corridor": "Bannerghata Road",
+      "n": 45,
+      "median_actual_min": 48.7,
+      "median_pred_min": 43.3,
+      "median_pred_cal_min": 46.0,
+      "correction": 1.06,
+      "bias": "under"
+    },
+    {
+      "corridor": "Old Airport Road",
+      "n": 36,
+      "median_actual_min": 67.8,
+      "median_pred_min": 35.4,
+      "median_pred_cal_min": 37.6,
+      "correction": 1.06,
+      "bias": "under"
+    },
+    {
+      "corridor": "ORR East 2",
+      "n": 35,
+      "median_actual_min": 42.2,
+      "median_pred_min": 40.7,
+      "median_pred_cal_min": 44.3,
+      "correction": 1.09,
+      "bias": "under"
+    },
+    {
+      "corridor": "CBD 2",
+      "n": 33,
+      "median_actual_min": 72.2,
+      "median_pred_min": 50.9,
+      "median_pred_cal_min": 54.0,
+      "correction": 1.06,
+      "bias": "under"
+    },
+    {
+      "corridor": "Varthur Road",
+      "n": 31,
+      "median_actual_min": 54.5,
+      "median_pred_min": 48.3,
+      "median_pred_cal_min": 51.3,
+      "correction": 1.06,
+      "bias": "under"
+    },
+    {
+      "corridor": "Hennur Main Road",
+      "n": 26,
+      "median_actual_min": 94.7,
+      "median_pred_min": 86.3,
+      "median_pred_cal_min": 87.9,
+      "correction": 1.02,
+      "bias": "under"
+    },
+    {
+      "corridor": "Airport New South Road",
+      "n": 19,
+      "median_actual_min": 68.8,
+      "median_pred_min": 93.1,
+      "median_pred_cal_min": 93.1,
+      "correction": 1.0,
+      "bias": "over"
+    }
+  ],
+  "top_corrected_segments": [
+    {
+      "event_cause": "water_logging",
+      "corridor": "Non-corridor",
+      "n": 66,
+      "median_actual_min": 512.4,
+      "median_pred_min": 474.3,
+      "median_pred_cal_min": 948.5,
+      "correction": 2.0,
+      "bias": "under"
+    },
+    {
+      "event_cause": "others",
+      "corridor": "Mysore Road",
+      "n": 37,
+      "median_actual_min": 140.1,
+      "median_pred_min": 196.9,
+      "median_pred_cal_min": 110.7,
+      "correction": 0.56,
+      "bias": "over"
+    },
+    {
+      "event_cause": "pot_holes",
+      "corridor": "Non-corridor",
+      "n": 37,
+      "median_actual_min": 1241.2,
+      "median_pred_min": 358.8,
+      "median_pred_cal_min": 483.0,
+      "correction": 1.35,
+      "bias": "under"
+    },
+    {
+      "event_cause": "accident",
+      "corridor": "Non-corridor",
+      "n": 32,
+      "median_actual_min": 43.5,
+      "median_pred_min": 35.2,
+      "median_pred_cal_min": 42.9,
+      "correction": 1.22,
+      "bias": "under"
+    },
+    {
+      "event_cause": "others",
+      "corridor": "Non-corridor",
+      "n": 120,
+      "median_actual_min": 86.4,
+      "median_pred_min": 137.5,
+      "median_pred_cal_min": 111.5,
+      "correction": 0.81,
+      "bias": "over"
+    },
+    {
+      "event_cause": "vehicle_breakdown",
+      "corridor": "Hosur Road",
+      "n": 72,
+      "median_actual_min": 49.0,
+      "median_pred_min": 41.0,
+      "median_pred_cal_min": 48.7,
+      "correction": 1.19,
+      "bias": "under"
+    },
+    {
+      "event_cause": "construction",
+      "corridor": "Non-corridor",
+      "n": 37,
+      "median_actual_min": 1381.7,
+      "median_pred_min": 844.2,
+      "median_pred_cal_min": 991.1,
+      "correction": 1.17,
+      "bias": "under"
+    },
+    {
+      "event_cause": "vehicle_breakdown",
+      "corridor": "ORR North 1",
+      "n": 45,
+      "median_actual_min": 36.7,
+      "median_pred_min": 36.7,
+      "median_pred_cal_min": 32.0,
+      "correction": 0.87,
+      "bias": "under"
+    },
+    {
+      "event_cause": "others",
+      "corridor": "Bellary Road 1",
+      "n": 26,
+      "median_actual_min": 87.6,
+      "median_pred_min": 134.6,
+      "median_pred_cal_min": 117.3,
+      "correction": 0.87,
+      "bias": "over"
+    },
+    {
+      "event_cause": "vehicle_breakdown",
+      "corridor": "Old Madras Road",
+      "n": 45,
+      "median_actual_min": 35.6,
+      "median_pred_min": 30.3,
+      "median_pred_cal_min": 34.1,
+      "correction": 1.13,
+      "bias": "under"
+    }
+  ],
+  "drift": [
+    {
+      "month": "2023-11",
+      "n": 359,
+      "bucket_acc_before": 63.5,
+      "bucket_acc_after": 62.7,
+      "median_ae_before": 26.0,
+      "median_ae_after": 25.7
+    },
+    {
+      "month": "2023-12",
+      "n": 558,
+      "bucket_acc_before": 62.2,
+      "bucket_acc_after": 64.2,
+      "median_ae_before": 25.6,
+      "median_ae_after": 25.1
+    },
+    {
+      "month": "2024-01",
+      "n": 496,
+      "bucket_acc_before": 59.5,
+      "bucket_acc_after": 56.9,
+      "median_ae_before": 23.4,
+      "median_ae_after": 24.3
+    },
+    {
+      "month": "2024-02",
+      "n": 470,
+      "bucket_acc_before": 57.9,
+      "bucket_acc_after": 56.8,
+      "median_ae_before": 24.6,
+      "median_ae_after": 25.2
+    },
+    {
+      "month": "2024-03",
+      "n": 674,
+      "bucket_acc_before": 51.2,
+      "bucket_acc_after": 53.0,
+      "median_ae_before": 45.8,
+      "median_ae_after": 44.3
+    },
+    {
+      "month": "2024-04",
+      "n": 220,
+      "bucket_acc_before": 45.9,
+      "bucket_acc_after": 49.1,
+      "median_ae_before": 64.7,
+      "median_ae_after": 73.4
+    }
+  ],
+  "scatter": [
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 59.6,
+      "pred": 52.7,
+      "cal": 56.2
+    },
+    {
+      "cause": "tree_fall",
+      "actual": 829.3,
+      "pred": 443.9,
+      "cal": 443.9
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 50.8,
+      "pred": 39.0,
+      "cal": 38.6
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 17.5,
+      "pred": 22.4,
+      "cal": 22.0
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 141.4,
+      "pred": 30.2,
+      "cal": 29.7
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 56.6,
+      "pred": 48.0,
+      "cal": 51.2
+    },
+    {
+      "cause": "others",
+      "actual": 1323.3,
+      "pred": 615.9,
+      "cal": 537.0
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 78.0,
+      "pred": 39.4,
+      "cal": 43.0
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 119.1,
+      "pred": 44.5,
+      "cal": 43.7
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 24.7,
+      "pred": 23.5,
+      "cal": 25.1
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 118.1,
+      "pred": 38.7,
+      "cal": 41.0
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 90.2,
+      "pred": 33.4,
+      "cal": 33.0
+    },
+    {
+      "cause": "water_logging",
+      "actual": 214.6,
+      "pred": 98.9,
+      "cal": 197.8
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 84.2,
+      "pred": 48.0,
+      "cal": 47.2
+    },
+    {
+      "cause": "accident",
+      "actual": 42.9,
+      "pred": 25.1,
+      "cal": 30.5
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 25.9,
+      "pred": 35.7,
+      "cal": 37.9
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 61.5,
+      "pred": 48.8,
+      "cal": 52.0
+    },
+    {
+      "cause": "others",
+      "actual": 81.8,
+      "pred": 271.2,
+      "cal": 236.4
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 126.5,
+      "pred": 53.0,
+      "cal": 56.5
+    },
+    {
+      "cause": "others",
+      "actual": 49.6,
+      "pred": 104.8,
+      "cal": 91.4
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 11.8,
+      "pred": 34.8,
+      "cal": 37.1
+    },
+    {
+      "cause": "pot_holes",
+      "actual": 8962.7,
+      "pred": 1574.8,
+      "cal": 2119.7
+    },
+    {
+      "cause": "others",
+      "actual": 1938.6,
+      "pred": 429.3,
+      "cal": 348.1
+    },
+    {
+      "cause": "accident",
+      "actual": 53.3,
+      "pred": 41.9,
+      "cal": 51.1
+    },
+    {
+      "cause": "road_conditions",
+      "actual": 7791.3,
+      "pred": 1126.1,
+      "cal": 1457.2
+    },
+    {
+      "cause": "construction",
+      "actual": 1444.9,
+      "pred": 211.2,
+      "cal": 191.4
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 9.2,
+      "pred": 25.1,
+      "cal": 24.7
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 13.0,
+      "pred": 18.9,
+      "cal": 20.6
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 36.2,
+      "pred": 45.7,
+      "cal": 48.7
+    },
+    {
+      "cause": "tree_fall",
+      "actual": 8.6,
+      "pred": 193.4,
+      "cal": 193.4
+    },
+    {
+      "cause": "others",
+      "actual": 7109.3,
+      "pred": 177.6,
+      "cal": 154.9
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 33.3,
+      "pred": 38.7,
+      "cal": 41.3
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 27.9,
+      "pred": 31.9,
+      "cal": 32.0
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 50.6,
+      "pred": 25.3,
+      "cal": 24.8
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 74.8,
+      "pred": 31.8,
+      "cal": 35.0
+    },
+    {
+      "cause": "pot_holes",
+      "actual": 1872.7,
+      "pred": 2863.9,
+      "cal": 3854.9
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 40.3,
+      "pred": 47.4,
+      "cal": 47.4
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 92.6,
+      "pred": 79.5,
+      "cal": 84.8
+    },
+    {
+      "cause": "procession",
+      "actual": 58.2,
+      "pred": 202.8,
+      "cal": 202.8
+    },
+    {
+      "cause": "construction",
+      "actual": 482.8,
+      "pred": 306.2,
+      "cal": 359.4
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 20.8,
+      "pred": 39.7,
+      "cal": 42.3
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 13.1,
+      "pred": 33.4,
+      "cal": 35.6
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 27.9,
+      "pred": 42.7,
+      "cal": 45.6
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 83.5,
+      "pred": 45.1,
+      "cal": 45.1
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 29.6,
+      "pred": 28.7,
+      "cal": 28.3
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 66.1,
+      "pred": 48.4,
+      "cal": 48.5
+    },
+    {
+      "cause": "water_logging",
+      "actual": 35.9,
+      "pred": 386.5,
+      "cal": 772.9
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 29.7,
+      "pred": 39.5,
+      "cal": 38.8
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 69.2,
+      "pred": 48.4,
+      "cal": 53.3
+    },
+    {
+      "cause": "others",
+      "actual": 66.2,
+      "pred": 90.9,
+      "cal": 79.3
+    },
+    {
+      "cause": "others",
+      "actual": 75.1,
+      "pred": 300.5,
+      "cal": 168.9
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 37.4,
+      "pred": 34.7,
+      "cal": 37.0
+    },
+    {
+      "cause": "water_logging",
+      "actual": 1.2,
+      "pred": 98.9,
+      "cal": 197.8
+    },
+    {
+      "cause": "others",
+      "actual": 6.8,
+      "pred": 125.0,
+      "cal": 70.2
+    },
+    {
+      "cause": "others",
+      "actual": 92.6,
+      "pred": 116.0,
+      "cal": 101.2
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 73.8,
+      "pred": 38.7,
+      "cal": 41.3
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 78.6,
+      "pred": 33.0,
+      "cal": 37.3
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 8.8,
+      "pred": 21.6,
+      "cal": 23.1
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 39.1,
+      "pred": 36.8,
+      "cal": 39.2
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 33.0,
+      "pred": 50.7,
+      "cal": 53.8
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 103.6,
+      "pred": 41.6,
+      "cal": 44.3
+    },
+    {
+      "cause": "construction",
+      "actual": 8801.1,
+      "pred": 842.5,
+      "cal": 763.3
+    },
+    {
+      "cause": "others",
+      "actual": 17.7,
+      "pred": 166.9,
+      "cal": 135.4
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 43.0,
+      "pred": 57.1,
+      "cal": 60.9
+    },
+    {
+      "cause": "water_logging",
+      "actual": 245.2,
+      "pred": 262.8,
+      "cal": 525.6
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 94.1,
+      "pred": 29.8,
+      "cal": 32.5
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 44.5,
+      "pred": 37.9,
+      "cal": 40.4
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 20.8,
+      "pred": 28.5,
+      "cal": 31.1
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 53.1,
+      "pred": 54.6,
+      "cal": 57.9
+    },
+    {
+      "cause": "others",
+      "actual": 15.8,
+      "pred": 142.6,
+      "cal": 115.6
+    },
+    {
+      "cause": "accident",
+      "actual": 23.8,
+      "pred": 39.0,
+      "cal": 38.6
+    },
+    {
+      "cause": "others",
+      "actual": 75.9,
+      "pred": 39.6,
+      "cal": 34.6
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 36.4,
+      "pred": 44.5,
+      "cal": 48.5
+    },
+    {
+      "cause": "tree_fall",
+      "actual": 952.4,
+      "pred": 365.7,
+      "cal": 365.7
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 2.3,
+      "pred": 34.0,
+      "cal": 40.4
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 129.2,
+      "pred": 48.7,
+      "cal": 51.9
+    },
+    {
+      "cause": "others",
+      "actual": 280.8,
+      "pred": 199.1,
+      "cal": 161.5
+    },
+    {
+      "cause": "tree_fall",
+      "actual": 155.9,
+      "pred": 197.7,
+      "cal": 197.7
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 32.8,
+      "pred": 35.9,
+      "cal": 39.2
+    },
+    {
+      "cause": "construction",
+      "actual": 28.9,
+      "pred": 225.7,
+      "cal": 204.5
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 36.4,
+      "pred": 44.0,
+      "cal": 47.0
+    },
+    {
+      "cause": "accident",
+      "actual": 64.7,
+      "pred": 22.8,
+      "cal": 27.8
+    },
+    {
+      "cause": "tree_fall",
+      "actual": 24.3,
+      "pred": 297.6,
+      "cal": 297.6
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 21.9,
+      "pred": 25.9,
+      "cal": 28.3
+    },
+    {
+      "cause": "construction",
+      "actual": 426.6,
+      "pred": 144.1,
+      "cal": 130.6
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 23.6,
+      "pred": 35.6,
+      "cal": 35.6
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 22.3,
+      "pred": 32.4,
+      "cal": 31.9
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 50.8,
+      "pred": 44.2,
+      "cal": 46.9
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 133.7,
+      "pred": 44.3,
+      "cal": 52.6
+    },
+    {
+      "cause": "others",
+      "actual": 18.1,
+      "pred": 69.2,
+      "cal": 60.4
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 51.0,
+      "pred": 37.8,
+      "cal": 37.9
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 107.3,
+      "pred": 42.7,
+      "cal": 45.6
+    },
+    {
+      "cause": "pot_holes",
+      "actual": 97.9,
+      "pred": 1102.8,
+      "cal": 1484.4
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 9.1,
+      "pred": 38.3,
+      "cal": 38.4
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 91.1,
+      "pred": 34.2,
+      "cal": 36.3
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 40.6,
+      "pred": 51.8,
+      "cal": 56.5
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 132.3,
+      "pred": 57.3,
+      "cal": 56.3
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 131.2,
+      "pred": 41.8,
+      "cal": 45.6
+    },
+    {
+      "cause": "construction",
+      "actual": 364.6,
+      "pred": 813.7,
+      "cal": 737.2
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 40.6,
+      "pred": 40.8,
+      "cal": 43.5
+    },
+    {
+      "cause": "tree_fall",
+      "actual": 5696.4,
+      "pred": 386.1,
+      "cal": 386.1
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 33.8,
+      "pred": 25.8,
+      "cal": 27.4
+    },
+    {
+      "cause": "accident",
+      "actual": 2.0,
+      "pred": 26.7,
+      "cal": 26.4
+    },
+    {
+      "cause": "others",
+      "actual": 111.0,
+      "pred": 63.8,
+      "cal": 51.7
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 30.1,
+      "pred": 39.2,
+      "cal": 41.9
+    },
+    {
+      "cause": "water_logging",
+      "actual": 30.7,
+      "pred": 551.2,
+      "cal": 1102.5
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 66.4,
+      "pred": 41.1,
+      "cal": 43.8
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 6.2,
+      "pred": 29.9,
+      "cal": 29.4
+    },
+    {
+      "cause": "water_logging",
+      "actual": 759.0,
+      "pred": 771.5,
+      "cal": 1543.0
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 81.3,
+      "pred": 46.6,
+      "cal": 49.7
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 10.6,
+      "pred": 32.6,
+      "cal": 34.8
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 44.0,
+      "pred": 24.6,
+      "cal": 24.2
+    },
+    {
+      "cause": "others",
+      "actual": 4665.3,
+      "pred": 475.5,
+      "cal": 267.2
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 22.3,
+      "pred": 31.5,
+      "cal": 33.6
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 57.2,
+      "pred": 39.3,
+      "cal": 41.9
+    },
+    {
+      "cause": "pot_holes",
+      "actual": 6152.2,
+      "pred": 1981.1,
+      "cal": 2666.5
+    },
+    {
+      "cause": "accident",
+      "actual": 46.7,
+      "pred": 75.8,
+      "cal": 75.0
+    },
+    {
+      "cause": "road_conditions",
+      "actual": 5081.0,
+      "pred": 1129.6,
+      "cal": 1461.7
+    },
+    {
+      "cause": "others",
+      "actual": 7305.8,
+      "pred": 798.7,
+      "cal": 647.7
+    },
+    {
+      "cause": "water_logging",
+      "actual": 45.9,
+      "pred": 474.3,
+      "cal": 948.5
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 70.8,
+      "pred": 25.6,
+      "cal": 27.9
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 33.1,
+      "pred": 44.6,
+      "cal": 47.6
+    },
+    {
+      "cause": "others",
+      "actual": 33.0,
+      "pred": 125.1,
+      "cal": 109.1
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 52.9,
+      "pred": 70.7,
+      "cal": 75.5
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 62.2,
+      "pred": 53.8,
+      "cal": 59.6
+    },
+    {
+      "cause": "others",
+      "actual": 12.8,
+      "pred": 111.1,
+      "cal": 90.1
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 133.5,
+      "pred": 49.3,
+      "cal": 52.6
+    },
+    {
+      "cause": "road_conditions",
+      "actual": 270.9,
+      "pred": 474.2,
+      "cal": 613.6
+    },
+    {
+      "cause": "tree_fall",
+      "actual": 1173.6,
+      "pred": 341.5,
+      "cal": 341.5
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 34.9,
+      "pred": 31.9,
+      "cal": 34.9
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 16.0,
+      "pred": 20.5,
+      "cal": 20.9
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 71.7,
+      "pred": 41.9,
+      "cal": 41.9
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 63.3,
+      "pred": 34.6,
+      "cal": 37.7
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 8.9,
+      "pred": 22.0,
+      "cal": 21.7
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 107.9,
+      "pred": 36.6,
+      "cal": 36.2
+    },
+    {
+      "cause": "others",
+      "actual": 24.4,
+      "pred": 131.2,
+      "cal": 114.4
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 25.1,
+      "pred": 33.6,
+      "cal": 34.3
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 107.4,
+      "pred": 49.0,
+      "cal": 53.6
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 76.0,
+      "pred": 46.5,
+      "cal": 49.6
+    },
+    {
+      "cause": "water_logging",
+      "actual": 2055.8,
+      "pred": 459.9,
+      "cal": 919.7
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 108.0,
+      "pred": 32.6,
+      "cal": 34.7
+    },
+    {
+      "cause": "water_logging",
+      "actual": 4337.0,
+      "pred": 861.7,
+      "cal": 1723.3
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 20.3,
+      "pred": 39.1,
+      "cal": 41.7
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 29.4,
+      "pred": 37.6,
+      "cal": 40.1
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 37.2,
+      "pred": 38.4,
+      "cal": 42.3
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 3.5,
+      "pred": 30.6,
+      "cal": 26.7
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 52.8,
+      "pred": 46.2,
+      "cal": 50.4
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 37.3,
+      "pred": 43.1,
+      "cal": 45.9
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 70.4,
+      "pred": 41.0,
+      "cal": 44.7
+    },
+    {
+      "cause": "others",
+      "actual": 4.0,
+      "pred": 80.4,
+      "cal": 70.1
+    },
+    {
+      "cause": "accident",
+      "actual": 14.4,
+      "pred": 25.8,
+      "cal": 25.5
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 73.6,
+      "pred": 51.7,
+      "cal": 57.0
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 58.5,
+      "pred": 42.7,
+      "cal": 46.6
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 75.4,
+      "pred": 45.9,
+      "cal": 54.6
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 15.5,
+      "pred": 28.8,
+      "cal": 28.5
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 62.6,
+      "pred": 29.2,
+      "cal": 31.1
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 56.1,
+      "pred": 52.1,
+      "cal": 55.6
+    },
+    {
+      "cause": "tree_fall",
+      "actual": 79.4,
+      "pred": 428.6,
+      "cal": 428.6
+    },
+    {
+      "cause": "others",
+      "actual": 84.4,
+      "pred": 99.3,
+      "cal": 86.6
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 78.7,
+      "pred": 42.2,
+      "cal": 44.8
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 141.0,
+      "pred": 40.1,
+      "cal": 43.9
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 39.0,
+      "pred": 43.2,
+      "cal": 42.4
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 68.0,
+      "pred": 47.8,
+      "cal": 47.8
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 146.4,
+      "pred": 39.4,
+      "cal": 39.4
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 47.8,
+      "pred": 36.2,
+      "cal": 38.6
+    },
+    {
+      "cause": "water_logging",
+      "actual": 146.5,
+      "pred": 2220.9,
+      "cal": 4441.7
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 45.4,
+      "pred": 24.3,
+      "cal": 25.9
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 66.2,
+      "pred": 36.2,
+      "cal": 39.6
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 75.5,
+      "pred": 49.9,
+      "cal": 53.2
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 9.1,
+      "pred": 51.1,
+      "cal": 56.3
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 95.2,
+      "pred": 59.0,
+      "cal": 63.0
+    },
+    {
+      "cause": "others",
+      "actual": 34.3,
+      "pred": 117.6,
+      "cal": 95.4
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 77.0,
+      "pred": 56.9,
+      "cal": 62.7
+    },
+    {
+      "cause": "pot_holes",
+      "actual": 1197.6,
+      "pred": 1660.7,
+      "cal": 2235.3
+    },
+    {
+      "cause": "others",
+      "actual": 426.0,
+      "pred": 296.7,
+      "cal": 258.8
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 59.1,
+      "pred": 50.1,
+      "cal": 53.4
+    },
+    {
+      "cause": "others",
+      "actual": 355.3,
+      "pred": 386.5,
+      "cal": 337.0
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 17.2,
+      "pred": 32.8,
+      "cal": 32.3
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 39.1,
+      "pred": 49.3,
+      "cal": 49.4
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 6.6,
+      "pred": 18.2,
+      "cal": 19.4
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 50.5,
+      "pred": 34.3,
+      "cal": 33.7
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 23.4,
+      "pred": 42.9,
+      "cal": 45.8
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 40.9,
+      "pred": 31.6,
+      "cal": 33.7
+    },
+    {
+      "cause": "others",
+      "actual": 32.6,
+      "pred": 184.5,
+      "cal": 103.7
+    },
+    {
+      "cause": "others",
+      "actual": 31.0,
+      "pred": 91.0,
+      "cal": 79.4
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 108.3,
+      "pred": 36.5,
+      "cal": 40.2
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 28.4,
+      "pred": 44.1,
+      "cal": 47.0
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 90.0,
+      "pred": 29.9,
+      "cal": 32.6
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 63.9,
+      "pred": 47.9,
+      "cal": 47.1
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 38.3,
+      "pred": 48.9,
+      "cal": 54.2
+    },
+    {
+      "cause": "others",
+      "actual": 7.4,
+      "pred": 78.5,
+      "cal": 68.5
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 75.8,
+      "pred": 51.8,
+      "cal": 55.3
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 69.3,
+      "pred": 30.5,
+      "cal": 32.4
+    },
+    {
+      "cause": "congestion",
+      "actual": 42.6,
+      "pred": 40.7,
+      "cal": 40.7
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 17.3,
+      "pred": 30.1,
+      "cal": 32.2
+    },
+    {
+      "cause": "tree_fall",
+      "actual": 220.3,
+      "pred": 633.5,
+      "cal": 633.5
+    },
+    {
+      "cause": "accident",
+      "actual": 45.8,
+      "pred": 66.8,
+      "cal": 81.4
+    },
+    {
+      "cause": "water_logging",
+      "actual": 1345.4,
+      "pred": 556.6,
+      "cal": 1113.2
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 70.5,
+      "pred": 41.5,
+      "cal": 44.3
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 46.9,
+      "pred": 45.5,
+      "cal": 48.3
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 29.8,
+      "pred": 32.4,
+      "cal": 31.8
+    },
+    {
+      "cause": "others",
+      "actual": 425.9,
+      "pred": 154.6,
+      "cal": 134.8
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 50.7,
+      "pred": 51.2,
+      "cal": 56.4
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 35.0,
+      "pred": 55.6,
+      "cal": 59.3
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 50.1,
+      "pred": 44.0,
+      "cal": 47.0
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 42.8,
+      "pred": 43.1,
+      "cal": 47.5
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 34.8,
+      "pred": 41.5,
+      "cal": 36.2
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 84.3,
+      "pred": 44.4,
+      "cal": 47.4
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 75.2,
+      "pred": 37.0,
+      "cal": 40.3
+    },
+    {
+      "cause": "others",
+      "actual": 36.3,
+      "pred": 130.6,
+      "cal": 105.9
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 15.3,
+      "pred": 28.0,
+      "cal": 28.0
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 13.9,
+      "pred": 20.8,
+      "cal": 22.2
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 9.5,
+      "pred": 42.9,
+      "cal": 51.0
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 43.2,
+      "pred": 35.2,
+      "cal": 35.8
+    },
+    {
+      "cause": "pot_holes",
+      "actual": 17.5,
+      "pred": 97.0,
+      "cal": 130.5
+    },
+    {
+      "cause": "accident",
+      "actual": 28.1,
+      "pred": 29.2,
+      "cal": 35.6
+    },
+    {
+      "cause": "water_logging",
+      "actual": 106.6,
+      "pred": 277.7,
+      "cal": 555.4
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 8.8,
+      "pred": 22.5,
+      "cal": 24.5
+    },
+    {
+      "cause": "accident",
+      "actual": 114.7,
+      "pred": 65.5,
+      "cal": 64.8
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 15.9,
+      "pred": 19.3,
+      "cal": 19.0
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 18.0,
+      "pred": 31.7,
+      "cal": 34.6
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 63.3,
+      "pred": 23.8,
+      "cal": 28.2
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 34.5,
+      "pred": 48.5,
+      "cal": 53.4
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 11.6,
+      "pred": 21.6,
+      "cal": 21.3
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 114.1,
+      "pred": 57.1,
+      "cal": 60.9
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 58.7,
+      "pred": 29.2,
+      "cal": 31.1
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 13.9,
+      "pred": 37.9,
+      "cal": 40.4
+    },
+    {
+      "cause": "water_logging",
+      "actual": 1218.7,
+      "pred": 668.8,
+      "cal": 1337.5
+    },
+    {
+      "cause": "tree_fall",
+      "actual": 185.3,
+      "pred": 422.9,
+      "cal": 422.9
+    },
+    {
+      "cause": "water_logging",
+      "actual": 6178.0,
+      "pred": 1273.6,
+      "cal": 2547.3
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 30.2,
+      "pred": 31.7,
+      "cal": 31.2
+    },
+    {
+      "cause": "water_logging",
+      "actual": 2397.0,
+      "pred": 290.8,
+      "cal": 581.7
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 46.5,
+      "pred": 30.4,
+      "cal": 34.3
+    },
+    {
+      "cause": "others",
+      "actual": 4304.7,
+      "pred": 114.0,
+      "cal": 99.4
+    },
+    {
+      "cause": "others",
+      "actual": 123.0,
+      "pred": 98.3,
+      "cal": 85.7
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 107.1,
+      "pred": 32.9,
+      "cal": 34.9
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 33.3,
+      "pred": 37.6,
+      "cal": 41.4
+    },
+    {
+      "cause": "water_logging",
+      "actual": 137.9,
+      "pred": 134.7,
+      "cal": 269.3
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 25.9,
+      "pred": 36.2,
+      "cal": 40.1
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 44.0,
+      "pred": 32.5,
+      "cal": 34.7
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 15.9,
+      "pred": 20.2,
+      "cal": 19.9
+    },
+    {
+      "cause": "accident",
+      "actual": 16.3,
+      "pred": 33.6,
+      "cal": 33.2
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 49.2,
+      "pred": 41.9,
+      "cal": 44.4
+    },
+    {
+      "cause": "tree_fall",
+      "actual": 18.3,
+      "pred": 93.1,
+      "cal": 93.1
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 136.9,
+      "pred": 51.7,
+      "cal": 55.2
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 72.3,
+      "pred": 25.4,
+      "cal": 27.8
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 15.9,
+      "pred": 26.8,
+      "cal": 28.6
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 10.2,
+      "pred": 36.7,
+      "cal": 39.1
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 7.3,
+      "pred": 41.8,
+      "cal": 44.6
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 38.0,
+      "pred": 30.5,
+      "cal": 32.6
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 78.6,
+      "pred": 51.7,
+      "cal": 55.2
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 14.2,
+      "pred": 32.1,
+      "cal": 38.1
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 34.5,
+      "pred": 40.9,
+      "cal": 43.7
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 44.7,
+      "pred": 30.1,
+      "cal": 31.9
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 136.9,
+      "pred": 46.7,
+      "cal": 49.8
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 44.6,
+      "pred": 46.9,
+      "cal": 51.1
+    },
+    {
+      "cause": "accident",
+      "actual": 52.7,
+      "pred": 24.6,
+      "cal": 24.3
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 138.7,
+      "pred": 53.6,
+      "cal": 57.2
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 40.8,
+      "pred": 41.4,
+      "cal": 36.1
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 41.5,
+      "pred": 36.5,
+      "cal": 39.8
+    },
+    {
+      "cause": "others",
+      "actual": 143.7,
+      "pred": 141.0,
+      "cal": 123.0
+    },
+    {
+      "cause": "water_logging",
+      "actual": 6570.6,
+      "pred": 911.6,
+      "cal": 1823.2
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 78.1,
+      "pred": 30.4,
+      "cal": 33.2
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 77.4,
+      "pred": 59.0,
+      "cal": 64.4
+    },
+    {
+      "cause": "procession",
+      "actual": 104.5,
+      "pred": 390.2,
+      "cal": 390.2
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 99.4,
+      "pred": 43.0,
+      "cal": 46.9
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 112.0,
+      "pred": 46.6,
+      "cal": 49.7
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 22.5,
+      "pred": 29.2,
+      "cal": 32.4
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 10.0,
+      "pred": 30.0,
+      "cal": 32.0
+    },
+    {
+      "cause": "road_conditions",
+      "actual": 1564.7,
+      "pred": 1228.4,
+      "cal": 1589.5
+    },
+    {
+      "cause": "road_conditions",
+      "actual": 8448.4,
+      "pred": 1302.2,
+      "cal": 1685.0
+    },
+    {
+      "cause": "others",
+      "actual": 28.8,
+      "pred": 76.1,
+      "cal": 61.7
+    },
+    {
+      "cause": "pot_holes",
+      "actual": 1510.6,
+      "pred": 1077.4,
+      "cal": 1450.1
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 102.0,
+      "pred": 69.0,
+      "cal": 73.6
+    },
+    {
+      "cause": "accident",
+      "actual": 16.3,
+      "pred": 25.8,
+      "cal": 25.5
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 47.1,
+      "pred": 48.3,
+      "cal": 51.2
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 46.1,
+      "pred": 46.7,
+      "cal": 51.1
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 105.2,
+      "pred": 34.3,
+      "cal": 33.7
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 80.1,
+      "pred": 29.9,
+      "cal": 31.9
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 20.1,
+      "pred": 35.2,
+      "cal": 37.5
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 26.9,
+      "pred": 36.5,
+      "cal": 36.6
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 105.1,
+      "pred": 30.4,
+      "cal": 30.4
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 18.5,
+      "pred": 25.4,
+      "cal": 28.6
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 6.6,
+      "pred": 30.8,
+      "cal": 32.9
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 72.5,
+      "pred": 40.7,
+      "cal": 43.2
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 14.4,
+      "pred": 30.7,
+      "cal": 32.8
+    },
+    {
+      "cause": "accident",
+      "actual": 61.2,
+      "pred": 89.1,
+      "cal": 88.2
+    },
+    {
+      "cause": "accident",
+      "actual": 109.1,
+      "pred": 65.5,
+      "cal": 64.8
+    },
+    {
+      "cause": "construction",
+      "actual": 410.1,
+      "pred": 653.2,
+      "cal": 591.8
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 21.2,
+      "pred": 29.2,
+      "cal": 32.3
+    },
+    {
+      "cause": "accident",
+      "actual": 41.6,
+      "pred": 23.3,
+      "cal": 23.1
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 104.0,
+      "pred": 50.1,
+      "cal": 54.8
+    },
+    {
+      "cause": "others",
+      "actual": 380.5,
+      "pred": 217.1,
+      "cal": 176.1
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 55.3,
+      "pred": 44.5,
+      "cal": 47.4
+    },
+    {
+      "cause": "others",
+      "actual": 1.1,
+      "pred": 129.9,
+      "cal": 105.4
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 88.7,
+      "pred": 46.1,
+      "cal": 46.1
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 5.5,
+      "pred": 36.6,
+      "cal": 36.7
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 19.1,
+      "pred": 28.1,
+      "cal": 30.6
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 58.6,
+      "pred": 38.6,
+      "cal": 42.7
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 49.6,
+      "pred": 49.3,
+      "cal": 52.6
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 23.3,
+      "pred": 30.8,
+      "cal": 32.9
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 7.5,
+      "pred": 24.9,
+      "cal": 24.5
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 19.5,
+      "pred": 39.2,
+      "cal": 41.9
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 61.0,
+      "pred": 41.6,
+      "cal": 44.4
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 56.5,
+      "pred": 38.1,
+      "cal": 40.6
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 41.0,
+      "pred": 42.1,
+      "cal": 44.9
+    },
+    {
+      "cause": "water_logging",
+      "actual": 251.5,
+      "pred": 594.2,
+      "cal": 1188.4
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 145.0,
+      "pred": 34.0,
+      "cal": 34.6
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 33.6,
+      "pred": 24.5,
+      "cal": 27.0
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 17.7,
+      "pred": 38.8,
+      "cal": 41.4
+    },
+    {
+      "cause": "pot_holes",
+      "actual": 5667.6,
+      "pred": 1389.6,
+      "cal": 1870.4
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 48.6,
+      "pred": 40.7,
+      "cal": 48.4
+    },
+    {
+      "cause": "others",
+      "actual": 10.3,
+      "pred": 124.8,
+      "cal": 108.9
+    },
+    {
+      "cause": "water_logging",
+      "actual": 34.4,
+      "pred": 80.6,
+      "cal": 161.3
+    },
+    {
+      "cause": "procession",
+      "actual": 36.5,
+      "pred": 177.6,
+      "cal": 177.6
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 133.6,
+      "pred": 46.6,
+      "cal": 51.3
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 36.7,
+      "pred": 30.6,
+      "cal": 26.6
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 44.9,
+      "pred": 49.4,
+      "cal": 52.7
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 79.0,
+      "pred": 38.0,
+      "cal": 40.6
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 14.7,
+      "pred": 30.1,
+      "cal": 32.1
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 83.6,
+      "pred": 60.9,
+      "cal": 64.6
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 16.0,
+      "pred": 25.4,
+      "cal": 26.9
+    },
+    {
+      "cause": "others",
+      "actual": 995.1,
+      "pred": 90.5,
+      "cal": 73.4
+    },
+    {
+      "cause": "tree_fall",
+      "actual": 81.1,
+      "pred": 102.9,
+      "cal": 102.9
+    },
+    {
+      "cause": "construction",
+      "actual": 11.8,
+      "pred": 350.5,
+      "cal": 317.6
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 60.7,
+      "pred": 34.5,
+      "cal": 37.7
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 66.7,
+      "pred": 43.1,
+      "cal": 46.0
+    },
+    {
+      "cause": "water_logging",
+      "actual": 41.5,
+      "pred": 758.2,
+      "cal": 1516.3
+    },
+    {
+      "cause": "road_conditions",
+      "actual": 737.9,
+      "pred": 544.9,
+      "cal": 705.2
+    },
+    {
+      "cause": "others",
+      "actual": 865.5,
+      "pred": 156.6,
+      "cal": 136.5
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 38.5,
+      "pred": 27.4,
+      "cal": 29.2
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 68.6,
+      "pred": 38.6,
+      "cal": 41.2
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 19.7,
+      "pred": 32.1,
+      "cal": 31.5
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 75.0,
+      "pred": 60.7,
+      "cal": 66.8
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 29.2,
+      "pred": 32.0,
+      "cal": 33.9
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 25.8,
+      "pred": 31.2,
+      "cal": 33.3
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 64.4,
+      "pred": 40.1,
+      "cal": 42.7
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 8.9,
+      "pred": 44.8,
+      "cal": 49.0
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 64.5,
+      "pred": 47.6,
+      "cal": 56.6
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 62.3,
+      "pred": 39.4,
+      "cal": 42.9
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 64.4,
+      "pred": 37.9,
+      "cal": 40.2
+    },
+    {
+      "cause": "others",
+      "actual": 452.1,
+      "pred": 259.0,
+      "cal": 225.8
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 21.4,
+      "pred": 40.9,
+      "cal": 43.4
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 73.0,
+      "pred": 33.2,
+      "cal": 36.3
+    },
+    {
+      "cause": "others",
+      "actual": 101.7,
+      "pred": 236.9,
+      "cal": 192.1
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 10.2,
+      "pred": 45.4,
+      "cal": 48.5
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 72.3,
+      "pred": 51.7,
+      "cal": 55.2
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 18.1,
+      "pred": 30.6,
+      "cal": 32.7
+    },
+    {
+      "cause": "tree_fall",
+      "actual": 30.0,
+      "pred": 160.9,
+      "cal": 160.9
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 51.8,
+      "pred": 40.7,
+      "cal": 43.4
+    },
+    {
+      "cause": "water_logging",
+      "actual": 37.1,
+      "pred": 386.3,
+      "cal": 772.5
+    },
+    {
+      "cause": "water_logging",
+      "actual": 65.6,
+      "pred": 99.8,
+      "cal": 199.6
+    },
+    {
+      "cause": "others",
+      "actual": 511.0,
+      "pred": 302.5,
+      "cal": 263.8
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 26.9,
+      "pred": 33.0,
+      "cal": 32.5
+    },
+    {
+      "cause": "congestion",
+      "actual": 108.2,
+      "pred": 99.0,
+      "cal": 99.0
+    },
+    {
+      "cause": "others",
+      "actual": 59.5,
+      "pred": 290.7,
+      "cal": 253.5
+    },
+    {
+      "cause": "water_logging",
+      "actual": 6866.8,
+      "pred": 1758.7,
+      "cal": 3517.4
+    },
+    {
+      "cause": "road_conditions",
+      "actual": 10024.2,
+      "pred": 749.7,
+      "cal": 970.2
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 8.5,
+      "pred": 26.1,
+      "cal": 28.7
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 60.9,
+      "pred": 34.5,
+      "cal": 34.0
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 24.4,
+      "pred": 28.1,
+      "cal": 30.0
+    },
+    {
+      "cause": "water_logging",
+      "actual": 77.6,
+      "pred": 68.5,
+      "cal": 137.0
+    },
+    {
+      "cause": "others",
+      "actual": 1682.1,
+      "pred": 479.8,
+      "cal": 418.4
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 48.8,
+      "pred": 32.6,
+      "cal": 34.8
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 44.1,
+      "pred": 46.7,
+      "cal": 50.9
+    },
+    {
+      "cause": "water_logging",
+      "actual": 71.3,
+      "pred": 509.6,
+      "cal": 1019.2
+    },
+    {
+      "cause": "water_logging",
+      "actual": 3481.1,
+      "pred": 432.5,
+      "cal": 865.0
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 30.1,
+      "pred": 46.9,
+      "cal": 50.0
+    },
+    {
+      "cause": "tree_fall",
+      "actual": 5581.9,
+      "pred": 858.1,
+      "cal": 858.1
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 7.6,
+      "pred": 18.9,
+      "cal": 20.6
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 35.7,
+      "pred": 40.0,
+      "cal": 39.3
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 11.1,
+      "pred": 44.6,
+      "cal": 47.3
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 8.3,
+      "pred": 31.8,
+      "cal": 34.7
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 108.8,
+      "pred": 42.1,
+      "cal": 36.7
+    },
+    {
+      "cause": "tree_fall",
+      "actual": 1114.9,
+      "pred": 631.6,
+      "cal": 631.6
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 15.2,
+      "pred": 31.6,
+      "cal": 34.5
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 92.3,
+      "pred": 48.2,
+      "cal": 53.4
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 155.1,
+      "pred": 59.4,
+      "cal": 63.4
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 74.6,
+      "pred": 28.3,
+      "cal": 31.9
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 27.3,
+      "pred": 19.8,
+      "cal": 19.9
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 112.3,
+      "pred": 40.9,
+      "cal": 40.9
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 39.3,
+      "pred": 43.4,
+      "cal": 44.2
+    },
+    {
+      "cause": "others",
+      "actual": 152.4,
+      "pred": 461.7,
+      "cal": 259.4
+    },
+    {
+      "cause": "congestion",
+      "actual": 136.0,
+      "pred": 60.3,
+      "cal": 60.3
+    },
+    {
+      "cause": "pot_holes",
+      "actual": 4445.0,
+      "pred": 1270.0,
+      "cal": 1709.5
+    },
+    {
+      "cause": "water_logging",
+      "actual": 34.8,
+      "pred": 253.1,
+      "cal": 506.1
+    },
+    {
+      "cause": "others",
+      "actual": 19.3,
+      "pred": 71.4,
+      "cal": 57.9
+    },
+    {
+      "cause": "water_logging",
+      "actual": 1373.6,
+      "pred": 630.9,
+      "cal": 1261.8
+    },
+    {
+      "cause": "water_logging",
+      "actual": 80.6,
+      "pred": 188.4,
+      "cal": 376.7
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 25.5,
+      "pred": 27.6,
+      "cal": 27.1
+    },
+    {
+      "cause": "others",
+      "actual": 2948.8,
+      "pred": 301.3,
+      "cal": 262.7
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 19.9,
+      "pred": 47.2,
+      "cal": 52.0
+    },
+    {
+      "cause": "others",
+      "actual": 61.6,
+      "pred": 307.0,
+      "cal": 267.7
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 32.6,
+      "pred": 52.2,
+      "cal": 52.3
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 43.5,
+      "pred": 33.2,
+      "cal": 32.6
+    },
+    {
+      "cause": "road_conditions",
+      "actual": 226.3,
+      "pred": 528.3,
+      "cal": 683.6
+    },
+    {
+      "cause": "construction",
+      "actual": 51.1,
+      "pred": 176.0,
+      "cal": 159.5
+    },
+    {
+      "cause": "water_logging",
+      "actual": 324.7,
+      "pred": 602.5,
+      "cal": 1204.9
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 12.7,
+      "pred": 38.4,
+      "cal": 38.4
+    },
+    {
+      "cause": "vehicle_breakdown",
+      "actual": 73.3,
+      "pred": 29.0,
+      "cal": 28.6
+    }
+  ],
+  "error_band": {
+    "p10_pct": -69,
+    "p50_pct": 0,
+    "p90_pct": 386
+  },
+  "samples": [
+    {
+      "cause": "others",
+      "corridor": "Non-corridor",
+      "date": "2023-11-21",
+      "actual_min": 9913,
+      "predicted_min": 381,
+      "corrected_min": 309
+    },
+    {
+      "cause": "others",
+      "corridor": "Non-corridor",
+      "date": "2024-02-13",
+      "actual_min": 9603,
+      "predicted_min": 81,
+      "corrected_min": 66
+    },
+    {
+      "cause": "others",
+      "corridor": "Non-corridor",
+      "date": "2024-03-03",
+      "actual_min": 9677,
+      "predicted_min": 237,
+      "corrected_min": 192
+    },
+    {
+      "cause": "road_conditions",
+      "corridor": "Magadi Road",
+      "date": "2024-02-24",
+      "actual_min": 10024,
+      "predicted_min": 750,
+      "corrected_min": 970
+    },
+    {
+      "cause": "others",
+      "corridor": "Mysore Road",
+      "date": "2024-01-03",
+      "actual_min": 9570,
+      "predicted_min": 399,
+      "corrected_min": 224
+    },
+    {
+      "cause": "water_logging",
+      "corridor": "Bannerghata Road",
+      "date": "2024-04-05",
+      "actual_min": 9920,
+      "predicted_min": 840,
+      "corrected_min": 1680
+    },
+    {
+      "cause": "water_logging",
+      "corridor": "ORR East 1",
+      "date": "2024-01-25",
+      "actual_min": 9654,
+      "predicted_min": 771,
+      "corrected_min": 1543
+    },
+    {
+      "cause": "construction",
+      "corridor": "Bellary Road 1",
+      "date": "2023-12-16",
+      "actual_min": 9616,
+      "predicted_min": 1024,
+      "corrected_min": 928
+    },
+    {
+      "cause": "tree_fall",
+      "corridor": "Non-corridor",
+      "date": "2024-03-07",
+      "actual_min": 8761,
+      "predicted_min": 222,
+      "corrected_min": 222
+    },
+    {
+      "cause": "others",
+      "corridor": "Mysore Road",
+      "date": "2023-12-28",
+      "actual_min": 8804,
+      "predicted_min": 320,
+      "corrected_min": 180
+    },
+    {
+      "cause": "construction",
+      "corridor": "Non-corridor",
+      "date": "2024-03-08",
+      "actual_min": 9656,
+      "predicted_min": 1173,
+      "corrected_min": 1377
+    },
+    {
+      "cause": "others",
+      "corridor": "Magadi Road",
+      "date": "2024-02-26",
+      "actual_min": 8530,
+      "predicted_min": 139,
+      "corrected_min": 121
+    }
+  ],
+  "methodology": "Correction factors are learned on the earlier 70% of resolved events and validated on the later 30% — out-of-sample, so the gain is real generalisation. We optimise for getting the right impact TIER / duration class (what drives resource allocation), not exact minutes: some causes (water-logging, pot-holes) have clearances spanning 70min–60h, so we also learn each segment's empirical P10–P90 spread and flag low-confidence forecasts. This calibrates the FORECAST; measuring whether a deployed plan reduced congestion needs logging of the intervention applied to each event (future work)."
+}
